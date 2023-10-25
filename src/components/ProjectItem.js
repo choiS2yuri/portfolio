@@ -7,7 +7,7 @@ const Container = styled.div`
     padding-bottom: 48px;
 `
 const ContainerWrap = styled.div`
-    max-width: 1280px;
+    max-width: 1280px; height: 100%;
     margin: 0 auto;
     display: flex; flex-wrap: wrap;
     padding: 0 2%;
