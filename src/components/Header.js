@@ -20,10 +20,14 @@ const Logo = styled.div`
         display: inline-block;
         box-sizing: border-box;
         @media screen and (max-width: 1200px){
-            width: 40%; height: 40%;
+            a{
+                width: 60%; height: 60%;
+            }
         }
         @media screen and (max-width: 768px){
-            width: 35%; height: 35%;
+            a{
+                width: 70%; height: 70%;
+            }
         }
     }
 `

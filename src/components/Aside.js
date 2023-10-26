@@ -22,7 +22,6 @@ const ContentWrap = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-
 `
 
 const Content = styled.li`
@@ -35,7 +34,7 @@ const Content = styled.li`
   margin-bottom: 10px;
   text-align: center;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 2em;
   a{
     width: 100px;
     height: 100px;

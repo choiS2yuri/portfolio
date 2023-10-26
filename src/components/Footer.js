@@ -8,16 +8,16 @@ const Footerwrap = styled.div`
   margin-top: 100px;
 `
 const Wrapper = styled.div`
-  height: 300px;
+  height: 100%;
   max-width: 1200px;
   margin: 0 auto;
-`
+  display: flex;
+  align-items: center;
+  `
 
 const Desc = styled.div`
-  height: 300px;
   width: 100%;
   color: #fff;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
