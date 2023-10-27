@@ -59,9 +59,10 @@ const Hamburger= styled.div`
 `
 
 
-function Header() {
+function Header({onContent1Click, onContent2Click, onContent3Click, onContent4Click}) {
     
   const [isActive,setIsActive]=useState(false);
+
   return (
     <>
         <Wrap>
@@ -72,10 +73,10 @@ function Header() {
                     </NavLink>
                 </Logo>
                 <Nav>
-                    <li>ABOUT</li>
-                    <li>SKILLS</li>
-                    <li>PROJECT</li>
-                    <li>CONTACT</li>
+                    <li onClick={onContent1Click}>ABOUT</li>
+                    <li onClick={onContent2Click}>SKILLS</li>
+                    <li onClick={onContent3Click}>PROJECT</li>
+                    <li onClick={onContent4Click}>CONTACT</li>
                 </Nav>
             </Wrapper>
             <Hamburger style={{position: `${isActive ? "fixed" : "absolute"}`}} className={isActive && "on"} onClick={()=>{setIsActive(!isActive)}}>

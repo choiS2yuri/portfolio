@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -24,7 +24,7 @@ const ContainerTitle = styled.div`
     &::after{
         content: "";
         position: absolute;
-        width: 7.5%;
+        width: 11%;
         height: 3px;
         background-color: #F3962F;
         left: 50%; top: 0;; transform: translate(-50%, -50%);
@@ -33,65 +33,11 @@ const ContainerTitle = styled.div`
 const Title = styled.h3`
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 1rem;
 `
-const ContentGrid = styled.div`
+const Swiperbox = styled(Swiper)`
     flex-basis: 100%;
     display: flex; flex-wrap: wrap;
     justify-content: space-between;
-`
-// const ContentItem = styled.div`
-//     flex-basis: 100%;
-//     /* position: relative; */
-//     display: flex;
-//     justify-content: space-around;
-//     flex-direction: column;
-//     border: 1px solid #ddd;
-//     border-radius: 10px;
-//     margin: 1rem;
-//     @media screen and  (min-width: 640px) {
-//         //테블릿
-//         flex-basis: 46%;
-//         img{
-//             max-width: 100%;
-//             max-height: 100%;
-//             display: block;
-//         }
-//     }
-//     @media screen and (min-width: 1024px) {
-//         //데스크
-//         flex-basis: 17.3%;
-//         margin-bottom: 5rem;
-//         img{
-//             max-width: 100%;
-//             max-height: 100%;
-//             display: block;
-//         }
-//     }
-//     img{
-//         /* width: 280px; height: 340px;  */
-//     }
-//     div{
-//         padding: 1rem 1.25rem;
-//         background-color: rgba(255,255,255,0.2);
-//         text-align: center;
-//         /* position: absolute; */
-//         bottom: 0;
-//         h3{
-//             font-weight: bold;
-//             margin-bottom: 0.5rem;
-//         }
-//         p{
-//             display: -webkit-box;
-//             -webkit-line-clamp: 2;
-//             -webkit-box-orient: vertical;
-//             overflow: hidden;
-//         }
-//     }
-// `
-const Swiperbox = styled(Swiper)`
-    width: 100%;
-    height: 100%;
 `
 const Swiperslide = styled(SwiperSlide)`
     text-align: center;
@@ -103,8 +49,8 @@ const Swiperslide = styled(SwiperSlide)`
     align-items: center;
     img{
     display: block;
-    width: 40%;
-    height: 40%;
+    width: 60%;
+    height: 60%;
     }
     div{
         padding: 1rem 1.25rem;
@@ -125,56 +71,59 @@ const Swiperslide = styled(SwiperSlide)`
 `
   
 function SkillsItem() {
+    const [slidesPerView, setSlidesPerView] = useState(1);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1000px)');
+    const updateSlidesPerView = (e) => {
+      if (e.matches) {
+        setSlidesPerView(3);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
+    
+    // 초기 화면 크기에 따라 slidesPerView 설정
+    updateSlidesPerView(mediaQuery);
+
+    // 화면 크기 변경 감지
+    mediaQuery.addListener(updateSlidesPerView);
+
+    return () => {
+      mediaQuery.removeListener(updateSlidesPerView);
+    };
+},[])
     const data =[
+      
         {
-            "img" : "./../images/icons8-html-48.png",
-            "title" : "HTML",
-            "desc" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi vero accusantium repellendus esse debitis aut obcaecati modi molestiae ex sequi."
+            "img" : "./../images/2.jpg",
+            "title" : "할리스커피",
+            "desc" : "클론코딩으로 html,css로 구현했습니다."
+        },  
+        {
+            "img" : "./../images/1.jpg",
+            "title" : "greenping",
+            "desc" : "캠핑 관련 정보 및 서비스 제공을 하고 커뮤니티를 기반으로 소통하는 사이트"
         },
         {
-            "img" : "./../images/icons8-css3-48.png",
-            "title" : "CSS",
-            "desc" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi vero accusantium repellendus esse debitis aut obcaecati modi molestiae ex sequi."
+            "img" : "./../images/3.jpg",
+            "title" : "써브웨이",
+            "desc" : "클론코딩입니다"
         },
         {
-            "img" : "./../images/icons8-script-48.png",
-            "title" : "javascript",
-            "desc" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi vero accusantium repellendus esse debitis aut obcaecati modi molestiae ex sequi."
+            "img" : "./../images/2.jpg",
+            "title" : "할리스커피",
+            "desc" : "클론코딩으로 html,css로 구현했습니다."
+        },  
+        {
+            "img" : "./../images/1.jpg",
+            "title" : "greenping",
+            "desc" : "캠핑 관련 정보 및 서비스 제공을 하고 커뮤니티를 기반으로 소통하는 사이트"
         },
         {
-            "img" : "./../images/icons8-sc-48.png",
-            "title" : "styled-component",
-            "desc" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi vero accusantium repellendus esse debitis aut obcaecati modi molestiae ex sequi."
-        },
-        {
-            "img" : "./../images/icons8-sass-48.png",
-            "title" : "sass",
-            "desc" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi vero accusantium repellendus esse debitis aut obcaecati modi molestiae ex sequi."
-        },
-        {
-            "img" : "./../images/icons8-react-48.png",
-            "title" : "react",
-            "desc" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi vero accusantium repellendus esse debitis aut obcaecati modi molestiae ex sequi."
-        },
-        {
-            "img" : "./../images/icons8-typescript-48.png",
-            "title" : "typescript",
-            "desc" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi vero accusantium repellendus esse debitis aut obcaecati modi molestiae ex sequi."
-        },
-        {
-            "img" : "./../images/icons8-nodejs-48.png",
-            "title" : "node.js",
-            "desc" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi vero accusantium repellendus esse debitis aut obcaecati modi molestiae ex sequi."
-        },
-        {
-            "img" : "./../images/icons8-firebase-48.png",
-            "title" : "firebase",
-            "desc" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi vero accusantium repellendus esse debitis aut obcaecati modi molestiae ex sequi."
-        },
-        {
-            "img" : "./../images/icons8-mongodb-48.png",
-            "title" : "mongodb",
-            "desc" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi vero accusantium repellendus esse debitis aut obcaecati modi molestiae ex sequi."
+            "img" : "./../images/3.jpg",
+            "title" : "써브웨이",
+            "desc" : "클론코딩입니다"
         }
     ]
 
@@ -183,11 +132,11 @@ function SkillsItem() {
     <Container>
         <ContainerWrap>
             <ContainerTitle>
-                <Title>SKILLS</Title>
+                <Title>PROJECT</Title>
             </ContainerTitle>
             <Swiperbox
-                slidesPerView={3}
-                spaceBetween={30}
+                slidesPerView={slidesPerView}
+                spaceBetween={0}
                 pagination={{
                     clickable: true,
                 }}

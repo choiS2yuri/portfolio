@@ -34,10 +34,11 @@ const Content = styled.li`
   margin-bottom: 10px;
   text-align: center;
   cursor: pointer;
-  font-size: 2em;
-  a{
-    width: 100px;
-    height: 100px;
+  font-size: 0.7rem;
+  color: #F3962F;
+  svg{
+    width: 80px;
+    height: 80px;
   }
   @media screen and (max-width: 640px){
         cursor: pointer;
@@ -45,9 +46,11 @@ const Content = styled.li`
         opacity: 0.8;
         background: #ffffff;
         border-radius: 50%;
-        color: #999999;
-        border: 2px solid #F3962F;
-        box-shadow: none;
+        color: #F3962F;
+        box-shadow: 1px 1px 4px gainsboro;
+        svg{
+          font-size: 0.8rem;
+        }
   }
 `;
 
