@@ -75,6 +75,7 @@ const RotatedImg = styled.img`
 const Connect = styled.ul`
   width: 100%;
   margin-top: 100px;
+  box-sizing: border-box;
   display: flex;
   justify-content: end;
   li{

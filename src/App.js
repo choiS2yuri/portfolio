@@ -10,6 +10,8 @@ import Footer from './components/Footer';
 import Aside from './components/Aside';
 import { useRef } from 'react';
 
+
+
 function App() {
 
   const content1Ref = useRef<HTMLDivElement>(null);

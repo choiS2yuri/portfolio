@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { Typewriter } from 'react-simple-typewriter'
 
-const Wrap = styled.div`
-  width: 100%;
-  height: 100%;
-`
 const Wrapper = styled.div`
   width: 80%;
   height: 100%;
@@ -13,42 +10,66 @@ const Wrapper = styled.div`
   white-space: pre-line;
   box-sizing: border-box;
   padding-top: 300px;
+  @media screen and (max-width: 768px){
+    padding-top: 200px;
+  }
 `
-const Title = styled.pre`
+const Title = styled.div`
   height: 100%;
   color: #F3962F;
   font-size: 70px;
   display: inline;
+  @media screen and (max-width: 768px){
+    font-size: 60px;
+  }
+`
+const Writerstyle = styled.p`
+    span{
+      text-align: center;
+      color: #F3962F;
+      font-size: 60px;
+      @media screen and (max-width: 768px){
+        text-align: center;
+        font-size: 45px;
+  }
+    }
 `
 
 function MainItem() {
-    const txt = "Hello, I'm\n Choi Yu Ri"
-    const [text, setText] = useState('');
-    const [count, setCount] = useState(0);
+    // const txt = "안녕하세요."
+    // const [text, setText] = useState('');
+    // const [count, setCount] = useState(0);
 
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-          setText(text + txt[count]);
-          setCount(count + 1);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //       setText(text + txt[count]);
+    //       setCount(count + 1);
+    //       if (count === txt.length) {
+    //         setCount(0);
+    //         setText('');
+    //       }
+    //     }, 250);
     
-          // 텍스트가 모두 출력되면 count와 text를 초기화
-          if (count === txt.length) {
-            setCount(0);
-            setText('');
-          }
-        }, 250);
-    
-        return () => clearInterval(interval);
-      }, [count,text]);
+    //     return () => clearInterval(interval);
+    //   }, [count,text]);
+
   
   return (
     <>
-      <Wrap>
         <Wrapper>
-          <Title>{text}</Title>
+          <Title>Hello I'm <br/>{''}</Title>
+            <Writerstyle>
+              <Typewriter 
+              words={["Choi Yu Ri", "Front End\nDeveloper"]}
+              loop={1000} 
+              cursor
+              cursorStyle='|'
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={500}/>
+            </Writerstyle>
         </Wrapper>
-      </Wrap>
     </>
   )
 }

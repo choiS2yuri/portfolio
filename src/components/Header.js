@@ -58,11 +58,30 @@ const Hamburger= styled.div`
   @media screen and (min-width: 768px){display: none;}
 `
 
-
 function Header({onContent1Click, onContent2Click, onContent3Click, onContent4Click}) {
     
   const [isActive,setIsActive]=useState(false);
-
+  const StyledDiv = styled.div`
+  position: fixed;
+  right: 50px;
+  top: 10px;
+  div {
+    width: 600px;
+    height: 50px;
+    display: block;
+    text-align: center;
+    background-color: gray;
+  }
+  span {
+    width: 40px;
+    line-height: 45px;
+    margin: 30px;
+    &:hover {
+      cursor: pointer;
+      color: white;
+    }
+  }
+`;
   return (
     <>
         <Wrap>
@@ -73,10 +92,10 @@ function Header({onContent1Click, onContent2Click, onContent3Click, onContent4Cl
                     </NavLink>
                 </Logo>
                 <Nav>
-                    <li onClick={onContent1Click}>ABOUT</li>
-                    <li onClick={onContent2Click}>SKILLS</li>
-                    <li onClick={onContent3Click}>PROJECT</li>
-                    <li onClick={onContent4Click}>CONTACT</li>
+                    <li><Link to="/about" spy={true} smooth={true}>ABOUT</Link></li>
+                    <li><Link to="/about" spy={true} smooth={true}>SKILLS</Link></li>
+                    <li><Link to="/about" spy={true} smooth={true}>PROJECT</Link></li>
+                    <li><Link to="/about" spy={true} smooth={true}>CONTACT</Link></li>
                 </Nav>
             </Wrapper>
             <Hamburger style={{position: `${isActive ? "fixed" : "absolute"}`}} className={isActive && "on"} onClick={()=>{setIsActive(!isActive)}}>

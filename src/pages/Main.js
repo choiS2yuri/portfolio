@@ -6,7 +6,6 @@ import MainItem from '../components/MainItem'
 import SkillsItem from '../components/SkillsItem'
 
 
-
 function Main({content1Ref, content2Ref, content3Ref}) {
 
   const scrollPosition = window.scrollY || document.documentElement.scrollTop;
