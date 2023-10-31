@@ -2,13 +2,14 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
 import Header from './components/Header';
-import About from './pages/About';
-import Skills from './pages/Skills';
-import Project from './pages/Project';
 import HeightBar from './components/HeightBar';
 import Footer from './components/Footer';
 import Aside from './components/Aside';
 import { useRef } from 'react';
+import AboutItem from './components/AboutItem';
+import SkillsItem from './components/SkillsItem';
+import ProjectItem from './components/ProjectItem';
+import Contact from './components/Contact';
 
 
 
@@ -36,10 +37,11 @@ function App() {
       <Header />
       <HeightBar />
         <Routes>
-          <Route path='/' element={<Main content1Ref={content1Ref} content2Ref={content2Ref} content3Ref={content3Ref} content4Ref={content4Ref} onContent1Click={onContent1Click} onContent2Click={onContent2Click} onContent3Click={onContent3Click} onContent4Click={onContent4Click} />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/skills' element={<Skills />} />
-          <Route path='/project' element={<Project/>} />
+          <Route path='/' element={<Main />} />
+          {/* <Route path='/about' element={<AboutItem />} />
+          <Route path='/skills' element={<SkillsItem />} />
+          <Route path='/project' element={<ProjectItem/>} />
+          <Route path='/contact' element={<Contact />} /> */}
         </Routes>
       <Aside />
       <Footer /> 

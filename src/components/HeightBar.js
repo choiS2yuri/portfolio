@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrap =styled.div`
+const Wrapbar =styled.div`
     width: 5%;
     height: 100%;
     background-color: #F3962F;
@@ -16,7 +16,20 @@ const Wrap =styled.div`
 function HeightBar() {
   return (
     <>
-        <Wrap></Wrap>
+        <Wrapbar>
+            <div id="a">
+              <h2>ABOUT</h2>
+            </div>
+            <div id="b">
+              <h2>SKILLS</h2>  
+            </div>
+            <div id="c">
+              <h2>PROJECT</h2>
+            </div>
+            <div id="d">
+              <h2>CONTACT</h2>
+            </div>
+        </Wrapbar>
     </>
   )
 }

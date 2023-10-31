@@ -4,6 +4,7 @@ import AboutItem from '../components/AboutItem'
 import ProjectItem from '../components/ProjectItem'
 import MainItem from '../components/MainItem'
 import SkillsItem from '../components/SkillsItem'
+import Contact from '../components/Contact'
 
 
 function Main({content1Ref, content2Ref, content3Ref}) {
@@ -16,6 +17,7 @@ function Main({content1Ref, content2Ref, content3Ref}) {
       <AboutItem content1Ref={content1Ref}  />
       <SkillsItem content1Ref={content2Ref} />
       <ProjectItem content1Ref={content3Ref} />
+      <Contact />
     </>
   )
 }
