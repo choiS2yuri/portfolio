@@ -3,14 +3,18 @@ import styled from 'styled-components'
 
 const Wrapbar =styled.div`
     width: 5%;
-    height: 100%;
+    height: 1000vh;
     background-color: #F3962F;
     position: fixed;
     top: 0px;
     z-index: 990;
     overflow: auto;
+    overflow: hidden;
     @media screen and (max-width: 768px){
       visibility: hidden;
+    }
+    div{
+      height: 700px;
     }
 `
 function HeightBar() {

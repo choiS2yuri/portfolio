@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import {  NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Wrap = styled.div`
@@ -10,9 +10,7 @@ const Wrap = styled.div`
 const Wrapper = styled.div`
     width: 100%;
     height: 150px;
-    position: fixed;
     display: flex; justify-content: space-between;
-
 `
 const Logo = styled.div`
     a{
@@ -28,7 +26,8 @@ const Logo = styled.div`
             width: 50%; height: 50%;
         }
     }
-    display: ${props => (props.scrollY >= 130 ? 'none' : 'block')};
+    /* display: ${props => (props.scrollY >= 130 ? 'none' : 'block')}; */
+    /* 스크롤 130만큼 내려가면 nav 고정되도록함 */
 `
 const Nav = styled.div`
     flex-basis: 100%;
@@ -86,17 +85,22 @@ function Header() {
     <>
         <Wrap>
             <Wrapper>
-                <Logo scrollY={scrollY}>
+                <Logo> 
+                    {/*  scrollY={scrollY} logo스크롤 값 알려면 logo 뒤에 붙여야함 */}
                     <NavLink to={"/"}>
                         <img src={`images/logoggul.jpg`} alt='logo'/>
                     </NavLink>
                 </Logo>
                 <Nav>
                     <ul>
-                        <li><Link to="a" spy={true} smooth={true}>ABOUT</Link></li>
+                        {/* <li><Link to="a" spy={true} smooth={true}>ABOUT</Link></li>
                         <li><Link to="b" spy={true} smooth={true}>SKILLS</Link></li>
                         <li><Link to="c" spy={true} smooth={true}>PROJECT</Link></li>
-                        <li><Link to="d" spy={true} smooth={true}>CONTACT</Link></li>
+                        <li><Link to="d" spy={true} smooth={true}>CONTACT</Link></li> */}
+                        <li>ABOUT</li>
+                        <li>SKILLS</li>
+                        <li>PROJECT</li>
+                        <li>CONTACT</li>
                     </ul>
                 </Nav>
             </Wrapper>

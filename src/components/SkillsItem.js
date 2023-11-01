@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     width: 100%;
-    height: 100%;
-    margin-top: 50px;
+    height: auto;
+    margin: 50px 0;
 `
 const ContainerWrap = styled.div`
     max-width: 1280px;

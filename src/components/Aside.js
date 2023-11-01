@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { styled } from "styled-components";
-import { Link } from "react-router-dom";
-
 const Wrap = styled.div`
   position: fixed;
   bottom: 3%;
@@ -25,8 +23,8 @@ const ContentWrap = styled.ul`
 `
 
 const Content = styled.li`
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background-color: #ffffff;
   opacity: 0.98;
@@ -37,8 +35,8 @@ const Content = styled.li`
   font-size: 0.7rem;
   color: #F3962F;
   svg{
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
   }
   @media screen and (max-width: 640px){
         cursor: pointer;
@@ -60,7 +58,7 @@ function Aside() {
 
   useEffect(() => {
     const isActiveClick = () => {
-      if (window.scrollY > 350) {
+      if (window.scrollY > 2500) {
         setIsActive(true);
       } else {
         setIsActive(false);
