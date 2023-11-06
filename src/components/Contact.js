@@ -1,3 +1,5 @@
+import { faKickstarterK } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
@@ -35,6 +37,24 @@ const Title = styled.h3`
 `
 const ContentBox = styled.div`
   width: 100%;
+  margin: 0 auto;
+  p{
+    text-align: center;
+    display: flex; justify-content: center;
+    svg{
+      border: 1px solid #fff;
+      /* background-color: #fae100; 카카오*/
+      background-color: #F3962F;
+      padding: 1rem;
+      border-radius: 50%;
+      font-size: 30px;
+      color: #fff;
+    }
+    span{
+      font-size: 35px;
+      margin-left: 8px;
+    }
+  }
 
 `
 const ContentItem = styled.div`
@@ -45,9 +65,9 @@ const ContentItem = styled.div`
     text-align: center; 
     img{
       display: block;
-      width: 50%; height: 50%;
-      border: 1px solid #F3962F;
-      border-radius: 10px;
+      width: 50%; height: 80%;
+      /* border: 5px solid #F3962F; */
+      /* border-radius: 10px; */
       margin: 0 auto;
     }
   }
@@ -55,17 +75,21 @@ const ContentItem = styled.div`
 function Contact() {
   return (
     <>
-      <Container>
+      <Container id="contact">
         <ContainerWrap>
           <ContainerTitle>
             <Title>Contact</Title>
           </ContainerTitle>
           <ContentBox>
             <ContentItem>
-              <Link to={"https://open.kakao.com/o/sqQDdJPf"} >
+              <a href='https://open.kakao.com/o/sqQDdJPf' target='_blank'>
                 <img src={`images/Kakao.jpg`} alt='kakao'/>
-              </Link>
+              </a>
             </ContentItem>
+            <p>
+              <FontAwesomeIcon icon={faKickstarterK} />
+              <span>1:1 문의하기</span>
+            </p>
           </ContentBox>
         </ContainerWrap>
       </Container>

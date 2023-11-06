@@ -6,6 +6,8 @@ const Footerwrap = styled.div`
   width: 100%; height: 300px;
   background-color: rgba(248, 155, 0, 0.5);
   margin-top: 100px;
+  z-index: 1100;
+  position: relative;
 `
 const Wrapper = styled.div`
   height: 100%;

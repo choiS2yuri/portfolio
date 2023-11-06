@@ -1,39 +1,77 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
-const Wrapbar =styled.div`
-    width: 5%;
-    height: 1000vh;
-    background-color: #F3962F;
-    position: fixed;
-    top: 0px;
-    z-index: 990;
-    overflow: auto;
-    overflow: hidden;
-    @media screen and (max-width: 768px){
-      visibility: hidden;
-    }
-    div{
-      height: 700px;
-    }
-`
+const Wrapbar = styled.div`
+  width: 5%;
+  height: 1000vh;
+  position: fixed;
+  background-color: #F3962F;
+  z-index: 990;
+  overflow: auto;
+  overflow: hidden;
+  @media screen and (max-width: 768px) {
+    visibility: hidden;
+  }
+  div {
+    position: relative;
+  }
+`;
+
+const Heading = styled.h2`
+  position: absolute;
+  top: ${(props) => (props.position ? `${props.position}px` : '0')};
+  opacity: ${(props) => (props.visible ? 1 : 0)};
+  transition: opacity 0.5s;
+`;
+
 function HeightBar() {
+  const [isVisible, setIsVisible] = useState([false, false, false, false]);
+  const headingsRef = [useRef(), useRef(), useRef(), useRef()];
+  const [menuActive, setMenuActive]= useState(false);
+  // {menuActive ? "right-0":"-right-72"}
+  const toggleMenu = ()=>{
+    setMenuActive(!menuActive);
+  }
+  useEffect(() => {
+    const handleScroll = () => {
+      headingsRef.forEach((ref, index) => {
+        if (ref.current) {
+          const top = ref.current.getBoundingClientRect().top;
+          setIsVisible((prev) => {
+            const newVisible = [...prev];
+            newVisible[index] = top >= 0 && top <= window.innerHeight;
+            return newVisible;
+          })
+        }
+      }
+  )}
+
+    // 컴포넌트가 마운트된 상태에서만 스크롤 이벤트 리스너를 등록
+
+      window.addEventListener('scroll', handleScroll);
+    
+
+    // 언마운트 시 스크롤 이벤트 리스너 해제
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <>
-        <Wrapbar>
-            <div id="a">
-              <h2>ABOUT</h2>
-            </div>
-            <div id="b">
-              <h2>SKILLS</h2>  
-            </div>
-            <div id="c">
-              <h2>PROJECT</h2>
-            </div>
-            <div id="d">
-              <h2>CONTACT</h2>
-            </div>
-        </Wrapbar>
+      <Wrapbar>
+        <div>
+          <Heading visible={isVisible[0]} position={1113}>ABOUT</Heading>
+        </div>
+        <div>
+          <Heading  visible={isVisible[1]} position={1918}>SKILLS</Heading>
+        </div>
+        <div>
+          <Heading visible={isVisible[2]}  position={2724}>PROJECT</Heading>
+        </div>
+        <div>
+          <Heading visible={isVisible[3]} position={3687}>CONTACT</Heading>
+        </div>
+      </Wrapbar>
     </>
   )
 }

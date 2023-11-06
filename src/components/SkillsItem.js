@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Container = styled.div`
     width: 100%;
     height: auto;
-    margin: 50px 0;
+    margin: 150px 0;
 `
 const ContainerWrap = styled.div`
     max-width: 1280px;
@@ -38,6 +38,7 @@ const ContentGrid = styled.div`
     flex-basis: 100%;
     display: flex; flex-wrap: wrap;
     justify-content: space-between;
+
 `
 
 const ContentItem = styled.div`
@@ -64,9 +65,9 @@ const ContentItem = styled.div`
         flex-basis: 18.4%;
     }
     &:hover{
-        background-color: #e5e7eb;
+        background-color: #F3962F;
     }
-    p:nth-child(1){color:#9ca3af;margin-top:1.25rem;font-weight: bold; font-size:1.5rem;}
+    p:nth-child(1){color:#9ca3af; margin-top:1.25rem; font-weight: bold; font-size:1.5rem;}
 `
 function SkillsItem() {
     const data =[
@@ -115,7 +116,7 @@ function SkillsItem() {
 
   return (
     <>
-        <Container>
+        <Container id="skills">
             <ContainerWrap>
               <ContainerTitle>
                 <Title>SKills</Title>

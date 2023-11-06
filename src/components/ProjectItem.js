@@ -97,40 +97,44 @@ function ProjectItem() {
     const data =[
       
         {
-            "img" : "./../images/2.jpg",
-            "title" : "할리스커피",
-            "desc" : "클론코딩으로 html,css로 구현했습니다."
+            type : "Clone",
+            img : "./../images/2.jpg",
+            title : "할리스커피",
+            desc : "클론코딩으로 html,css로 구현했습니다."
+        },  
+        {   
+            type : "Project",
+            img : "./../images/1.jpg",
+            title : "greenping",
+            desc : "캠핑 관련 정보 및 서비스 제공을 하고 커뮤니티를 기반으로 소통하는 사이트"
+        },
+        {
+            type : "Clone",
+            img : "./../images/3.jpg",
+            title : "써브웨이",
+            desc : "클론코딩입니다"
+        },
+        {
+            type : "Clone",
+            img : "./../images/4.jpg",
+            title : "반올림피자샵",
+            desc : "클론코딩으로 html,css로 구현했습니다."
         },  
         {
-            "img" : "./../images/1.jpg",
-            "title" : "greenping",
-            "desc" : "캠핑 관련 정보 및 서비스 제공을 하고 커뮤니티를 기반으로 소통하는 사이트"
+            img : "./../images/1.jpg",
+            title : "greenping",
+            desc : "캠핑 관련 정보 및 서비스 제공을 하고 커뮤니티를 기반으로 소통하는 사이트"
         },
         {
-            "img" : "./../images/3.jpg",
-            "title" : "써브웨이",
-            "desc" : "클론코딩입니다"
-        },
-        {
-            "img" : "./../images/2.jpg",
-            "title" : "할리스커피",
-            "desc" : "클론코딩으로 html,css로 구현했습니다."
-        },  
-        {
-            "img" : "./../images/1.jpg",
-            "title" : "greenping",
-            "desc" : "캠핑 관련 정보 및 서비스 제공을 하고 커뮤니티를 기반으로 소통하는 사이트"
-        },
-        {
-            "img" : "./../images/3.jpg",
-            "title" : "써브웨이",
-            "desc" : "클론코딩입니다"
+            img : "./../images/3.jpg",
+            title : "써브웨이",
+            desc : "클론코딩입니다"
         }
     ]
 
   return (
     <>
-    <Container>
+    <Container id="project">
         <ContainerWrap>
             <ContainerTitle>
                 <Title>PROJECT</Title>

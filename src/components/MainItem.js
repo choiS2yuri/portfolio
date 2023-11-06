@@ -16,9 +16,11 @@ const Wrapper = styled.div`
 `
 const Title = styled.div`
   height: 100%;
-  color: #F3962F;
   font-size: 70px;
   display: inline;
+  p{
+      color: #F3962F;
+  }
   @media screen and (max-width: 768px){
     font-size: 60px;
   }
@@ -26,12 +28,13 @@ const Title = styled.div`
 const Writerstyle = styled.p`
     span{
       text-align: center;
-      color: #F3962F;
+      color: #fff;
+      background-color: orange;
       font-size: 60px;
       @media screen and (max-width: 768px){
         text-align: center;
         font-size: 45px;
-  }
+      }
     }
 `
 
@@ -54,11 +57,15 @@ function MainItem() {
     //     return () => clearInterval(interval);
     //   }, [count,text]);
 
+
   
   return (
     <>
         <Wrapper>
-          <Title>Hello I'm <br/>{''}</Title>
+          <Title>
+            <p>Hello I'm
+             <span>{''}</span></p>
+          </Title>
             <Writerstyle>
               <Typewriter 
               words={["Choi Yu Ri", "Front End\nDeveloper"]}
@@ -67,7 +74,8 @@ function MainItem() {
               cursorStyle='|'
               typeSpeed={70}
               deleteSpeed={50}
-              delaySpeed={500}/>
+              delaySpeed={500}
+              className="bold-text"/>
             </Writerstyle>
         </Wrapper>
     </>
