@@ -48,8 +48,8 @@ function Main() {
   return (
     <>
     <Header moveToArtist={moveToArtist}/>
-    <HeightBar/>
-    <MainItem />
+    <HeightBar moveToArtist={moveToArtist}/>
+    <MainItem/>
     <AboutItem  id="about"/>
     <SkillsItem id="skills"/>
     <ProjectItem id="project"/>

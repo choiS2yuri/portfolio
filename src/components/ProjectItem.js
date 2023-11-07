@@ -30,6 +30,9 @@ const ContainerTitle = styled.div`
         background-color: #F3962F;
         left: 50%; top: 0;; transform: translate(-50%, -50%);
     }
+    @media screen and (max-width: 768px){
+      visibility: hidden;
+    }
 `
 const Title = styled.h3`
     font-size: 2rem;

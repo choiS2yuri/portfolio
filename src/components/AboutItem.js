@@ -29,7 +29,7 @@ const Title = styled.div`
     flex-basis: 50%;
   }
   @media screen  and (max-width: 768px){
-    /* flex-basis: 80%;
+    flex-basis: 80%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -39,8 +39,7 @@ const Title = styled.div`
     }
     span{
       flex-basis: 100%;
-    } */
-    visibility: hidden;
+    }
   }
 `
 
@@ -68,7 +67,7 @@ const RotatedImg = styled.img`
     transform:rotate(0deg)
   }
   @media screen and (max-width: 768px){
-    width: 80%; height: 100%;
+    width: 60%; height: 80%;
     transform: rotate(0deg);
     &:hover{
     transform:rotate(30deg)
@@ -95,6 +94,7 @@ const ContainerTitle = styled.div`
     width: 100%;
     margin-top: 3rem;
     text-align: center;
+    margin-top: 6.5rem;
     margin-bottom: 1.25rem;
     position: relative;
     &::after{
@@ -108,6 +108,9 @@ const ContainerTitle = styled.div`
     p{
       font-size: 2rem;
       font-weight: bold;
+    }
+    @media screen and (max-width: 768px){
+      visibility: hidden;
     }
 `
 

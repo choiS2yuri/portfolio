@@ -7,8 +7,7 @@ const Wrapbar = styled.div`
   position: fixed;
   background-color: #F3962F;
   z-index: 990;
-  overflow: auto;
-  overflow: hidden;
+
   @media screen and (max-width: 768px) {
     visibility: hidden;
   }
@@ -24,14 +23,11 @@ const Heading = styled.h2`
   transition: opacity 0.5s;
 `;
 
-function HeightBar() {
+function HeightBar({moveToArtist}) {
   const [isVisible, setIsVisible] = useState([false, false, false, false]);
   const headingsRef = [useRef(), useRef(), useRef(), useRef()];
-  const [menuActive, setMenuActive]= useState(false);
+
   // {menuActive ? "right-0":"-right-72"}
-  const toggleMenu = ()=>{
-    setMenuActive(!menuActive);
-  }
   useEffect(() => {
     const handleScroll = () => {
       headingsRef.forEach((ref, index) => {
@@ -59,18 +55,18 @@ function HeightBar() {
   return (
     <>
       <Wrapbar>
-        <div>
+        {/* <div id='about'>
           <Heading visible={isVisible[0]} position={1113}>ABOUT</Heading>
         </div>
-        <div>
+        <div id='skills'>
           <Heading  visible={isVisible[1]} position={1918}>SKILLS</Heading>
         </div>
-        <div>
+        <div id='project'>
           <Heading visible={isVisible[2]}  position={2724}>PROJECT</Heading>
         </div>
-        <div>
+        <div id='contact'>
           <Heading visible={isVisible[3]} position={3687}>CONTACT</Heading>
-        </div>
+        </div> */}
       </Wrapbar>
     </>
   )

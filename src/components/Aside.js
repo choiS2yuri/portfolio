@@ -8,7 +8,7 @@ const Wrap = styled.div`
   right: 3%;
   align-items: center;
   z-index: 500;
-  opacity: ${({ isActive }) => (isActive ? "1" : "0")}; 
+  opacity: ${({ isactive }) => (isactive ? "1" : "0")}; 
   transition: opacity 1.5s ease;
   @media screen and (max-width: 640px){
     bottom: 3%;
@@ -54,7 +54,7 @@ const Content = styled.li`
 
 
 function Aside() {
-  const [isActive, setIsActive] = useState(false);
+  const [isactive, setIsActive] = useState(false);
 
   useEffect(() => {
     const isActiveClick = () => {
@@ -78,8 +78,8 @@ function Aside() {
 
   return (
     <>
-        <Wrap isActive={isActive}>
-            {isActive && 
+        <Wrap>
+            {isactive && 
                 <ContentWrap>
                     <Content onClick={moveToTop}>
                         <FontAwesomeIcon icon={faChevronUp} />
