@@ -46,7 +46,6 @@ const ContentBox = styled.div`
     display: flex; justify-content: center;
     svg{
       border: 1px solid #fff;
-      /* background-color: #fae100; 카카오*/
       background-color: #F3962F;
       padding: 1rem;
       border-radius: 50%;
