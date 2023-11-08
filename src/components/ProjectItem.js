@@ -1,9 +1,7 @@
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/scss/pagination';
+
 
 const Container = styled.div`
     width: 100%;
@@ -38,67 +36,38 @@ const Title = styled.h3`
     font-size: 2rem;
     font-weight: bold;
 `
-const Swiperbox = styled(Swiper)`
+const ContentGrid = styled.div`
     flex-basis: 100%;
     display: flex; flex-wrap: wrap;
     justify-content: space-between;
+
 `
-const Swiperslide = styled(SwiperSlide)`
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+
+const ContentItem = styled.div`
+    flex-basis: 45%;
+    margin: 10px;
+    height: 25rem;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+    box-sizing: border-box; 
     img{
-    display: block;
-    width: 60%;
-    height: 60%;
+      display: inline-block;
+      width: 100%; height: 100%;
     }
-    div{
-        padding: 1rem 1.25rem;
-        background-color: rgba(255,255,255,0.2);
-        text-align: center;
-        bottom: 0;
-        h3{
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        p{
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-     }
+    @media screen and (min-width: 640px){
+        flex-basis: 30%;
+    }
+    @media screen and (min-width: 1024px){
+        flex-basis: 18.4%;
+    }
+    &:hover{
+        background-color: #F3962F;
     }
 `
-  
 function ProjectItem() {
-    const [slidesPerView, setSlidesPerView] = useState(1);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 1000px)');
-    const updateSlidesPerView = (e) => {
-      if (e.matches) {
-        setSlidesPerView(3);
-      } else {
-        setSlidesPerView(1);
-      }
-    };
-    
-    // 초기 화면 크기에 따라 slidesPerView 설정
-    updateSlidesPerView(mediaQuery);
-
-    // 화면 크기 변경 감지
-    mediaQuery.addListener(updateSlidesPerView);
-
-    return () => {
-      mediaQuery.removeListener(updateSlidesPerView);
-    };
-},[])
     const data =[
-      
         {
             type : "Clone",
             img : "./../images/2.jpg",
@@ -135,6 +104,8 @@ function ProjectItem() {
         }
     ]
 
+
+
   return (
     <>
     <Container id="project">
@@ -142,27 +113,17 @@ function ProjectItem() {
             <ContainerTitle>
                 <Title>PROJECT</Title>
             </ContainerTitle>
-            <Swiperbox
-                slidesPerView={slidesPerView}
-                spaceBetween={0}
-                pagination={{
-                    clickable: true,
-                }}
-                className="mySwiper">
-                     {
+            <ContentGrid>
+                    {
                         data.map((e,i)=>{
                             return(
-                            <Swiperslide key={i}>
-                                <img src={e.img} alt={e.title} />
-                                <div>
-                                    <h3>{e.title}</h3>
-                                    <p>{e.desc}</p>
-                                </div>
-                            </Swiperslide>
+                                <ContentItem key={i}>
+                                  <img src={e.img} alt={e.title} />
+                                </ContentItem>
                             )
                         })
                     }
-            </Swiperbox>
+              </ContentGrid>
         </ContainerWrap>
     </Container>
 </>

@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/scss/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
 
 const Container = styled.div`
     width: 100%;
@@ -35,87 +40,104 @@ const ContainerTitle = styled.div`
 const Title = styled.h3`
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
 `
-const ContentGrid = styled.div`
+
+const Swiperbox = styled(Swiper)`
     flex-basis: 100%;
     display: flex; flex-wrap: wrap;
     justify-content: space-between;
-
 `
-
-const ContentItem = styled.div`
-    flex-basis: 45%;
-    margin: 10px;
-    height: 12rem;
-    border: 1px solid #ddd;
-    padding: 2rem 1.25rem 2rem 1.25rem;
-    cursor: pointer;
+const Swiperslide = styled(SwiperSlide)`
     text-align: center;
-    position: relative;
-    transition: 0.3s;
-    box-sizing: border-box; 
-    font-size: 1rem;
-    font-size: 0.8rem;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     img{
-      display: inline-block;
-      width: 50%; height: 50%;
+    display: block;
+    width: 60%;
+    height: 60%;
     }
-    @media screen and (min-width: 640px){
-        flex-basis: 30%;
+    div{
+        padding: 1rem 1.25rem;
+        background-color: rgba(255,255,255,0.2);
+        text-align: center;
+        bottom: 0;
+        h3{
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        p{
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+     }
     }
-    @media screen and (min-width: 1024px){
-        flex-basis: 18.4%;
-    }
-    &:hover{
-        background-color: #F3962F;
-    }
-    p:nth-child(1){color:#9ca3af; margin-top:1.25rem; font-weight: bold; font-size:1.5rem;}
 `
 function SkillsItem() {
-    const data =[
-      {
-          "img" : "./../images/icons8-html-48.png",
-          "title" : "HTML"
-      },
-      {
-          "img" : "./../images/icons8-css3-48.png",
-          "title" : "CSS"
-      },
-      {
-          "img" : "./../images/icons8-script-48.png",
-          "title" : "javascript"
-      },
-      {
-          "img" : "./../images/icons8-sc-48.png",
-          "title" : "styled-component"
-      },
-      {
-          "img" : "./../images/icons8-sass-48.png",
-          "title" : "sass"
-      },
-      {
-          "img" : "./../images/icons8-react-48.png",
-          "title" : "react"
-      },
-      {
-          "img" : "./../images/icons8-typescript-48.png",
-          "title" : "typescript"
-      },
-      {
-          "img" : "./../images/icons8-nodejs-48.png",
-          "title" : "node.js"
-      },
-      {
-          "img" : "./../images/icons8-firebase-48.png",
-          "title" : "firebase"
-      },
-      {
-          "img" : "./../images/icons8-mongodb-48.png",
-          "title" : "mongodb",
-          "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
-      }
-  ]
+    const [slidesPerView, setSlidesPerView] = useState(1);
+
+    useEffect(() => {
+      const mediaQuery = window.matchMedia('(min-width: 1000px)');
+      const updateSlidesPerView = (e) => {
+        if (e.matches) {
+          setSlidesPerView(5);
+        } else {
+          setSlidesPerView(3);
+        }
+      };
+      
+      // 초기 화면 크기에 따라 slidesPerView 설정
+      updateSlidesPerView(mediaQuery);
+  },[])
+  const data =[
+    {
+        "img" : "./../images/icons8-html-48.png",
+        "title" : "HTML"
+    },
+    {
+        "img" : "./../images/icons8-css3-48.png",
+        "title" : "CSS"
+    },
+    {
+        "img" : "./../images/icons8-script-48.png",
+        "title" : "javascript"
+    },
+    {
+        "img" : "./../images/icons8-sc-48.png",
+        "title" : "styled-component"
+    },
+    {
+        "img" : "./../images/icons8-sass-48.png",
+        "title" : "sass"
+    },
+    {
+        "img" : "./../images/icons8-react-48.png",
+        "title" : "react"
+    },
+    {
+        "img" : "./../images/icons8-typescript-48.png",
+        "title" : "typescript"
+    },
+    {
+        "img" : "./../images/icons8-nodejs-48.png",
+        "title" : "node.js"
+    },
+    {
+        "img" : "./../images/icons8-firebase-48.png",
+        "title" : "firebase"
+    },
+    {
+        "img" : "./../images/icons8-mongodb-48.png",
+        "title" : "mongodb",
+        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
+    }
+]
+    
 
   return (
     <>
@@ -124,20 +146,27 @@ function SkillsItem() {
               <ContainerTitle>
                 <Title>SKills</Title>
               </ContainerTitle>
-              <ContentGrid>
-                    {
+              <Swiperbox
+                slidesPerView={slidesPerView}
+                spaceBetween={10}
+                navigation
+                pagination={{
+                    clickable: true,
+                }}
+                className="mySwiper">
+                     {
                         data.map((e,i)=>{
                             return(
-                                <ContentItem key={i}>
-                                  <img src={e.img} alt={e.title} />
-                                  <div>
-                                    <p>{e.title}</p>
-                                  </div>
-                                </ContentItem>
+                            <Swiperslide key={i}>
+                                <img src={e.img} alt={e.title} />
+                                <div>
+                                    <p>{e.desc}</p>
+                                </div>
+                            </Swiperslide>
                             )
                         })
                     }
-              </ContentGrid>
+            </Swiperbox>
             </ContainerWrap>
         </Container>
     </>
