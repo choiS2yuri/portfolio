@@ -43,7 +43,7 @@ const Title = styled.h3`
     margin-bottom: 2rem;
 `
 
-const Swiperbox = styled(Swiper)`
+const Swiper = styled(Swiper)`
     flex-basis: 100%;
     display: flex; flex-wrap: wrap;
     justify-content: space-between;
@@ -146,7 +146,7 @@ function SkillsItem() {
               <ContainerTitle>
                 <Title>SKills</Title>
               </ContainerTitle>
-              <Swiperbox
+              <Swiper
                 slidesPerView={slidesPerView}
                 spaceBetween={10}
                 navigation
@@ -166,7 +166,7 @@ function SkillsItem() {
                             )
                         })
                     }
-            </Swiperbox>
+            </Swiper>
             </ContainerWrap>
         </Container>
     </>
