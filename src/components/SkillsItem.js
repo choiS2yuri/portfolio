@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Navigation, Pagination } from 'swiper';
+import { Navigation, Pagination } from 'swiper/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/scss/pagination';
@@ -43,12 +43,12 @@ const Title = styled.h3`
     margin-bottom: 2rem;
 `
 
-const Swiper = styled(Swiper)`
+const MainSwiper = styled(Swiper)`
     flex-basis: 100%;
     display: flex; flex-wrap: wrap;
     justify-content: space-between;
 `
-const Swiperslide = styled(SwiperSlide)`
+const Swiperitems = styled(SwiperSlide)`
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -146,9 +146,9 @@ function SkillsItem() {
               <ContainerTitle>
                 <Title>SKills</Title>
               </ContainerTitle>
-              <Swiper
+              <MainSwiper
                 slidesPerView={slidesPerView}
-                spaceBetween={10}
+                spaceBetween={30}
                 navigation
                 pagination={{
                     clickable: true,
@@ -157,16 +157,16 @@ function SkillsItem() {
                      {
                         data.map((e,i)=>{
                             return(
-                            <Swiperslide key={i}>
+                            <Swiperitems key={i}>
                                 <img src={e.img} alt={e.title} />
                                 <div>
                                     <p>{e.desc}</p>
                                 </div>
-                            </Swiperslide>
+                            </Swiperitems>
                             )
                         })
                     }
-            </Swiper>
+            </MainSwiper>
             </ContainerWrap>
         </Container>
     </>
