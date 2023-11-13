@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import HeightBar from '../components/HeightBar'
 import Footer from '../components/Footer'
+import Aside from '../components/Aside'
 
 function Main() {
   
@@ -16,7 +17,7 @@ function Main() {
   const skillsItemRef = useRef({});
   const projectItemRef = useRef({});
   const contactRef = useRef({});
-  const refArr = [aboutItemRef, skillsItemRef, projectItemRef, contactRef];
+  // const refArr = [aboutItemRef, skillsItemRef, projectItemRef, contactRef];
   
 
   
@@ -52,6 +53,7 @@ function Main() {
     <ProjectItem id="project"/>
     <Contact id="contact"/>
     <Footer />
+    <Aside />
     </>
   )
 }

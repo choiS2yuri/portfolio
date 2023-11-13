@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     position: fixed;
     background-color: #fff;
     @media (max-width: 680px) {
-        width: 100%; height: 100px;
+        width: 100%; height: 75px;
     }
     @media (min-width: 1200px) {
         width: 100%; height: 100px;
@@ -39,7 +39,6 @@ const Logo = styled.div`
             height: 50%;
         }
     }
-
     a img {
         max-width: 100%;
         height: auto;
@@ -61,7 +60,8 @@ const Nav = styled.div`
     }
     @media (min-width:681px) and (max-width: 1280px) {
         ul{
-            li{flex-basis: 40%; font-size: 20px;}
+            height: 75px;
+            li{flex-basis: 40%; font-size: 20px; line-height:75px;} 
         }
     }
 `
@@ -84,7 +84,7 @@ const Hamburger= styled.div`
 const HWrap = styled.div`
     display: none;
     width: 100%;
-    height: auto;
+    height: 75px;
     position: fixed;
     top: 0;
     background-color: #F3962F;
@@ -131,7 +131,6 @@ const HWrapper=styled.div`
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-//   console.log(window.scrollY)
 const scrollToTop = () => {
     window.scrollTo(0, 0);
   };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Typewriter } from 'react-simple-typewriter'
 
@@ -9,20 +9,22 @@ const Wrapper = styled.div`
   text-align: center;
   white-space: pre-line;
   box-sizing: border-box;
-  padding-top: 300px;
+  padding-top: 200px;
   @media screen and (max-width: 768px){
     padding-top: 200px;
   }
 `
 const Title = styled.div`
   height: 100%;
-  font-size: 70px;
+  font-size: 80px;
+  font-weight: 900;
   display: inline;
   p{
       color: #F3962F;
   }
   @media screen and (max-width: 768px){
-    font-size: 60px;
+    font-size: 70px;
+    font-weight: 900;
   }
 `
 const Writerstyle = styled.p`
@@ -31,9 +33,13 @@ const Writerstyle = styled.p`
       color: #fff;
       background-color: orange;
       font-size: 60px;
+      line-height: 60px;
+      font-weight: 900;
       @media screen and (max-width: 768px){
         text-align: center;
-        font-size: 45px;
+        font-size: 60px;
+        line-height: 60px;
+        font-weight: 900;
       }
     }
 `

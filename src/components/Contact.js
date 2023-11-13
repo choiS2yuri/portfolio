@@ -1,7 +1,6 @@
 import { faKickstarterK } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
@@ -67,7 +66,7 @@ const ContentItem = styled.div`
     text-align: center; 
     img{
       display: block;
-      width: 50%; height: 80%;
+      width: 50%; height: 90%;
       /* border: 5px solid #F3962F; */
       /* border-radius: 10px; */
       margin: 0 auto;
@@ -84,7 +83,7 @@ function Contact() {
           </ContainerTitle>
           <ContentBox>
             <ContentItem>
-              <a href='https://open.kakao.com/o/sqQDdJPf' target='_blank'>
+              <a href='https://open.kakao.com/o/sqQDdJPf' target='_blank' rel='noreferrer'>
                 <img src={`images/Kakao.jpg`} alt='kakao'/>
               </a>
             </ContentItem>

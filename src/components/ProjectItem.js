@@ -1,5 +1,7 @@
 
 import React from 'react'
+// import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
@@ -13,6 +15,9 @@ const ContainerWrap = styled.div`
     margin: 0 auto;
     display: flex; flex-wrap: wrap;
     padding: 0 2%;
+    p{
+        text-align: end;
+    }
 `
 const ContainerTitle = styled.div`
     width: 100%;
@@ -55,6 +60,7 @@ const ContentItem = styled.div`
     img{
       display: inline-block;
       width: 100%; height: 100%;
+      transition: 0.3s;
     }
     @media screen and (min-width: 640px){
         flex-basis: 30%;
@@ -62,11 +68,23 @@ const ContentItem = styled.div`
     @media screen and (min-width: 1024px){
         flex-basis: 18.4%;
     }
-    &:hover{
-        background-color: #F3962F;
-    }
 `
+
+const Description = styled.span`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    opacity: ${({isOpen}) => (isOpen ? '1' : '0')};
+    transform: translateY(100%);
+    transition: 0.3s;
+`;
 function ProjectItem() {
+    // const [isOpen, setIsOpen] = useState(false)
+
     const data =[
         {
             type : "Clone",
@@ -109,11 +127,13 @@ function ProjectItem() {
                             return(
                                 <ContentItem key={i}>
                                   <img src={e.img} alt={e.title} />
+                                  <Description>{e.desc}</Description>
                                 </ContentItem>
                             )
                         })
                     }
               </ContentGrid>
+              <p><Link to={'/project'}>더보기+</Link></p>
         </ContainerWrap>
     </Container>
 </>

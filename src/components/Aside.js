@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { styled } from "styled-components";
+
 const Wrap = styled.div`
   position: fixed;
   bottom: 3%;
@@ -42,7 +43,7 @@ const Content = styled.li`
         cursor: pointer;
         padding: 10px;
         opacity: 0.8;
-        background: #ffffff;
+        background: orange;
         border-radius: 50%;
         color: #F3962F;
         box-shadow: 1px 1px 4px gainsboro;
@@ -58,7 +59,7 @@ function Aside() {
 
   useEffect(() => {
     const isActiveClick = () => {
-      if (window.scrollY > 2500) {
+      if (window.scrollY > 500) {
         setIsActive(true);
       } else {
         setIsActive(false);
