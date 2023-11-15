@@ -53,7 +53,6 @@ function Main() {
     <ProjectItem id="project"/>
     <Contact id="contact"/>
     <Footer />
-    <Aside />
     </>
   )
 }

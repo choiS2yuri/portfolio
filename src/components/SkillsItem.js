@@ -56,28 +56,44 @@ const Swiperitems = styled(SwiperSlide)`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    img{
-    display: block;
-    width: 60%;
-    height: 60%;
+    position: relative;
+    img {
+        display: block;
+        width: 60%;
+        height: 60%;
+        transition: opacity 0.3s ease;
+        /* &:hover {
+            opacity: 0.7;
+        } */
     }
-    div{
-        padding: 1rem 1.25rem;
-        background-color: rgba(255,255,255,0.2);
+    div {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
         text-align: center;
-        bottom: 0;
-        h3{
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        p{
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+        transition: bottom 0.3s ease;
+        p {
             overflow: hidden;
-     }
+            opacity: 0;
+            font-size: 18px;
+            transition: opacity 0.3s ease;
+            color: #000;
+        }
     }
-`
+
+    &:hover div {
+        top: 0;
+        border: 1px solid orange;
+    }
+    &:hover p{
+        opacity: 1;
+        text-align: center;
+        line-height: 18px;
+    }
+`;
 function SkillsItem() {
     const [slidesPerView, setSlidesPerView] = useState(1);
 
@@ -97,39 +113,48 @@ function SkillsItem() {
   const data =[
     {
         "img" : "./../images/icons8-html-48.png",
-        "title" : "HTML"
+        "title" : "HTML",
+        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
     },
     {
         "img" : "./../images/icons8-css3-48.png",
-        "title" : "CSS"
+        "title" : "CSS",
+        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
     },
     {
         "img" : "./../images/icons8-script-48.png",
-        "title" : "javascript"
+        "title" : "javascript",
+        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
     },
     {
         "img" : "./../images/icons8-sc-48.png",
-        "title" : "styled-component"
+        "title" : "styled-component",
+        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
     },
     {
         "img" : "./../images/icons8-sass-48.png",
-        "title" : "sass"
+        "title" : "sass",
+        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
     },
     {
         "img" : "./../images/icons8-react-48.png",
-        "title" : "react"
+        "title" : "react",
+        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
     },
     {
         "img" : "./../images/icons8-typescript-48.png",
-        "title" : "typescript"
+        "title" : "typescript",
+        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
     },
     {
         "img" : "./../images/icons8-nodejs-48.png",
-        "title" : "node.js"
+        "title" : "node.js",
+        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
     },
     {
         "img" : "./../images/icons8-firebase-48.png",
-        "title" : "firebase"
+        "title" : "firebase",
+        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
     },
     {
         "img" : "./../images/icons8-mongodb-48.png",
