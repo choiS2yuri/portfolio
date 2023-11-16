@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { styled } from "styled-components";
+import { debounce } from "lodash";
 
 const Wrap = styled.div`
   position: fixed;
   bottom: 3%;
   right: 3%;
-  align-items: center;
-  z-index: 500;
+  z-index: 1500;
   opacity: ${({ isactive }) => (isactive ? "1" : "0")}; 
   transition: opacity 1.5s ease;
   @media screen and (max-width: 640px){
@@ -55,19 +55,35 @@ const Content = styled.li`
 
 
 function Aside() {
-  const [isactive, setIsActive] = useState(true);
+  const [isactive, setIsActive] = useState(false);
 
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsActive(window.scrollY > 500);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   useEffect(() => {
-    const isActiveClick = () => {
-      if (window.scrollY > 500) {
-        setIsActive(false);
-      } else {
-        setIsActive(true);
-      }
+    let animationFrameId;
+
+    const handleScroll = () => {
+      cancelAnimationFrame(animationFrameId);
+
+      animationFrameId = requestAnimationFrame(() => {
+        setIsActive(window.scrollY > 500);
+      });
     };
-    window.addEventListener("scroll", isActiveClick);
+
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      window.removeEventListener("scroll", isActiveClick); 
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
