@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { styled } from "styled-components";
-import { debounce } from "lodash";
+
 
 const Wrap = styled.div`
   position: fixed;

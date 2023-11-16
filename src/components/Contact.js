@@ -17,14 +17,14 @@ const ContainerWrap = styled.div`
 `
 const ContainerTitle = styled.div`
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 7rem;
     text-align: center;
     margin-bottom: 1.25rem;
     position: relative;
     &::after{
         content: "";
         position: absolute;
-        width: 11%;
+        width: 8%;
         height: 3px;
         background-color: #F3962F;
         left: 50%; top: 0;; transform: translate(-50%, -50%);
