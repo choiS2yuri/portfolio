@@ -13,20 +13,20 @@ import Aside from '../components/Aside'
 
 function Main() {
   
-  const aboutItemRef = useRef({});
-  const skillsItemRef = useRef({});
-  const projectItemRef = useRef({});
-  const contactRef = useRef({});
+  // const aboutItemRef = useRef({});
+  // const skillsItemRef = useRef({});
+  // const projectItemRef = useRef({});
+  // const contactRef = useRef({});
   // const refArr = [aboutItemRef, skillsItemRef, projectItemRef, contactRef];
   
 
   
-  useEffect(() => {
-    console.log(aboutItemRef.current);
-    console.log(skillsItemRef.current);
-    console.log(projectItemRef.current);
-    console.log(contactRef.current);
-  }, []);
+  // useEffect(() => {
+  //   console.log(aboutItemRef.current);
+  //   console.log(skillsItemRef.current);
+  //   console.log(projectItemRef.current);
+  //   console.log(contactRef.current);
+  // }, []);
   // const moveToArtist = (id) => {
   //   document.getElementById(id).scrollIntoView({
   //     behavior: "smooth",
@@ -43,6 +43,7 @@ function Main() {
       });
     }
   };
+
   return (
     <>
     <Header moveToArtist={moveToArtist}/>

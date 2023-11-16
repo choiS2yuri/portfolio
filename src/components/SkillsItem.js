@@ -49,6 +49,30 @@ const MySwiper = styled(Swiper)`
     flex-basis: 100%;
     display: flex; flex-wrap: wrap;
     justify-content: space-between;
+    swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: #ddd;
+    margin: 0 5px;
+    opacity: 0.7;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    background-color: #F3962F;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    color: #F3962F;
+    font-size: 24px;
+    
+  }
 `
 const SwiperSlides = styled(SwiperSlide)`
     text-align: center;
@@ -61,7 +85,6 @@ const SwiperSlides = styled(SwiperSlide)`
     flex-direction: column;
     align-items: center;
     /* position: relative; */
-
     img {
         display: block;
         width: 60%;
@@ -74,9 +97,10 @@ const SwiperSlides = styled(SwiperSlide)`
     div {
         position: absolute;
         bottom: -100%;
-        left: 0;
-        width: 12rem;
+        left: 40px;
+        width: 10rem;
         height: 15rem;
+        margin: 0 auto;
         background-color: #fff;
         text-align: center;
         transition: bottom 0.3s ease;

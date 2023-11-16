@@ -31,7 +31,7 @@ const Logo = styled.div`
         
         @media (max-width: 680px) {
             width: 80px;
-            height: 80px;
+            height: 75px;
         }
 
         @media (min-width: 1200px) {

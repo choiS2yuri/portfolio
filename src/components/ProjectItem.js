@@ -7,23 +7,19 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     width: 100%;
-    height: 100%;
 `
 const ContainerWrap = styled.div`
     max-width: 1280px;
-    height: 100%;
     margin: 0 auto;
     display: flex; flex-wrap: wrap;
     padding: 0 2%;
-    p{
-        text-align: end;
-    }
+
 `
 const ContainerTitle = styled.div`
     width: 100%;
     margin-top: 3rem;
     text-align: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 3rem;
     position: relative;
     &::after{
         content: "";
@@ -35,6 +31,17 @@ const ContainerTitle = styled.div`
     }
     @media screen and (max-width: 768px){
       visibility: hidden;
+    }
+    p{
+        text-align: end;
+
+        font-size: 18px;
+        a{
+            &:hover{
+                color: #F3962F;
+                font-weight: bold;
+            }
+        }
     }
 `
 const Title = styled.h3`
@@ -83,33 +90,91 @@ const Description = styled.span`
     transition: 0.3s;
 `;
 function ProjectItem() {
-    // const [isOpen, setIsOpen] = useState(false)
+
+
 
     const data =[
         {
             type : "Clone",
             img : "./../images/2.jpg",
             title : "할리스커피",
-            desc : "클론코딩으로 html,css로 구현했습니다."
+            desc : "클론코딩으로 html,css로 구현했습니다.",
+            keyword: ["#심플", "#깰끔", "커피"],
+            color: ["darkred", "orange" , "orangered"],
+            date: "5일",
+            contribution: "100%"
         },  
         {   
             type : "Project",
             img : "./../images/1.jpg",
             title : "greenping",
-            desc : "캠핑 관련 정보 및 서비스 제공을 하고 커뮤니티를 기반으로 소통하는 사이트"
+            desc : "캠핑 관련 정보 및 서비스 제공을 하고 커뮤니티를 기반으로 소통하는 사이트",
+            keyword: ["#편리한","#여행","#캠핑"],
+            color: ["lightgreen","gray","green"],
+            date: "27일",
+            contribution: "20%"
         },
         {
             type : "Clone",
             img : "./../images/3.jpg",
             title : "써브웨이",
-            desc : "클론코딩입니다"
+            desc : "클론코딩입니다",
+            keyword: ["#맛있는","#반응형","차은우"],
+            color: ["green","yellow","white"],
+            date: "10일",
+            contribution: "100%"
         },
         {
             type : "Clone",
             img : "./../images/4.jpg",
             title : "반올림피자샵",
-            desc : "클론코딩으로 html,css로 구현했습니다."
+            desc : "클론코딩으로 html,css로 구현했습니다.",
+            keyword: ["#대구기업","#리디자인","#깔끔한"],
+            color: ["blue","yellow","white"],
+            date: "15일",
+            contribution: "100%"
+        },
+        {
+            type : "Webapp",
+            img : "./../images/5.jpg",
+            title : "부산축제정보",
+            desc : "공공데이터 API를 활용한 부산축제정보 안내 사이트입니다.",
+            keyword: ["#여행정보","#부산"],
+            color: ["lightskyblue","blue","white"],
+            date: "5일",
+            contribution: "100%"
+        },
+        {
+            type : "Webapp",
+            img : "./../images/6.jpg",
+            title : "기초상식퀴즈",
+            desc : "직접만들 JSON파일로 제작한 퀴즈 사이트",
+            keyword: ["#기초상식","#코딩공부","#미니프로젝트"],
+            color: ["darkgreen","indigo","white"],
+            date: "2일",
+            contribution: "100%"
+        },        
+        {
+            type : "Webapp",
+            img : "./../images/7.jpg",
+            title : "택배조회서비스",
+            desc : "택배조회서비스 key를 발급받아 만든 국.내외 택배조회 서비스",
+            keyword: ["#택배조회","#편리한","#미니프로젝트"],
+            color: ["orange","indigo","pink"],
+            date: "3일",
+            contribution: "100%"
+        },
+        {
+            type : "Webapp",
+            img : "./../images/8.jpg",
+            title : "오늘의 운세정보",
+            desc : "오늘의 운세정보를 확인할 수 있는 사이트",
+            keyword: ["#운세정보","#재미있는","#미니프로젝트"],
+            color: ["pink","white"],
+            date: "3일",
+            contribution: "100%"
         }
+
     ]
 
 
@@ -120,6 +185,7 @@ function ProjectItem() {
         <ContainerWrap>
             <ContainerTitle>
                 <Title>PROJECT</Title>
+                <p><Link to={'/project'}>더보기+</Link></p>
             </ContainerTitle>
             <ContentGrid>
                     {
@@ -133,7 +199,6 @@ function ProjectItem() {
                         })
                     }
               </ContentGrid>
-              <p><Link to={'/project'}>더보기+</Link></p>
         </ContainerWrap>
     </Container>
 </>
