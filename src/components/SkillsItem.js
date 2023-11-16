@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Navigation, Pagination } from 'swiper/react';
+import { Navigation, Pagination} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/scss/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+
+
 
 const Container = styled.div`
     width: 100%;
@@ -43,20 +45,23 @@ const Title = styled.h3`
     margin-bottom: 2rem;
 `
 
-const MainSwiper = styled(Swiper)`
+const MySwiper = styled(Swiper)`
     flex-basis: 100%;
     display: flex; flex-wrap: wrap;
     justify-content: space-between;
 `
-const Swiperitems = styled(SwiperSlide)`
+const SwiperSlides = styled(SwiperSlide)`
     text-align: center;
+    width: 5rem;
+    height: 16rem;
     font-size: 18px;
     background: #fff;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    /* position: relative; */
+
     img {
         display: block;
         width: 60%;
@@ -70,23 +75,31 @@ const Swiperitems = styled(SwiperSlide)`
         position: absolute;
         bottom: -100%;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 12rem;
+        height: 15rem;
         background-color: #fff;
         text-align: center;
         transition: bottom 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         p {
             overflow: hidden;
             opacity: 0;
             font-size: 18px;
             transition: opacity 0.3s ease;
             color: #000;
+            &:first-of-type {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 22px;
+            }
         }
     }
 
     &:hover div {
         top: 0;
-        border: 1px solid orange;
     }
     &:hover p{
         opacity: 1;
@@ -94,6 +107,8 @@ const Swiperitems = styled(SwiperSlide)`
         line-height: 18px;
     }
 `;
+
+
 function SkillsItem() {
     const [slidesPerView, setSlidesPerView] = useState(1);
 
@@ -171,27 +186,28 @@ function SkillsItem() {
               <ContainerTitle>
                 <Title>SKills</Title>
               </ContainerTitle>
-              <MainSwiper
+              <MySwiper
+                modules={[Navigation, Pagination]}
                 slidesPerView={slidesPerView}
                 spaceBetween={30}
                 navigation
                 pagination={{
                     clickable: true,
-                }}
-                className="mySwiper">
+                }}>
                      {
                         data.map((e,i)=>{
                             return(
-                            <Swiperitems key={i}>
+                            <SwiperSlides key={i}>
                                 <img src={e.img} alt={e.title} />
                                 <div>
+                                    <p>{e.title}</p>
                                     <p>{e.desc}</p>
                                 </div>
-                            </Swiperitems>
+                            </SwiperSlides>
                             )
                         })
                     }
-            </MainSwiper>
+            </MySwiper>
             </ContainerWrap>
         </Container>
     </>
