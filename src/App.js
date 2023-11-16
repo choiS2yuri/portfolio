@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-    <Aside />
+        <Aside />
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/project' element={<Project />} />

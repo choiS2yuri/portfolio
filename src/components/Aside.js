@@ -55,14 +55,14 @@ const Content = styled.li`
 
 
 function Aside() {
-  const [isactive, setIsActive] = useState(false);
+  const [isactive, setIsActive] = useState(true);
 
   useEffect(() => {
     const isActiveClick = () => {
       if (window.scrollY > 500) {
-        setIsActive(true);
-      } else {
         setIsActive(false);
+      } else {
+        setIsActive(true);
       }
     };
     window.addEventListener("scroll", isActiveClick);

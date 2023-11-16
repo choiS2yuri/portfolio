@@ -95,6 +95,16 @@ function ProjectItem() {
 
     const data =[
         {
+            type : "Project",
+            img : "./../images/9.jpg",
+            title : "최유리포트폴리오",
+            desc : "포트폴리오 제작했습니다.",
+            keyword: ["#운세정보","#재미있는","#미니프로젝트"],
+            color: ["orange","white"],
+            date: "10일",
+            contribution: "100%"
+        },
+        {
             type : "Clone",
             img : "./../images/2.jpg",
             title : "할리스커피",
@@ -174,7 +184,6 @@ function ProjectItem() {
             date: "3일",
             contribution: "100%"
         }
-
     ]
 
 

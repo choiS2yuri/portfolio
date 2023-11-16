@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
@@ -19,12 +19,12 @@ const Wrapper = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   background-color: #fff;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  /* border-radius: 10px;
+  border: 1px solid #ddd; */
 `
 const Title = styled.div`
   text-align: center; font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 3rem;
 `
 const Container = styled.div`
   margin-top: 2rem;
@@ -83,7 +83,7 @@ const ProjectDesc = styled.div`
 `
 
 function Project() {
-  const menuArray = ["전체", "클론", "팀프로젝트", "웹앱"];
+  const menuArray = ["전체", "클론", "프로젝트", "웹앱"];
   const menuType = ["전체", "Clone", "Project", "Webapp"];
   const [isClick, setIsClick] = useState(0);
   const [cateGory, setCateGory] = useState("전체");
@@ -168,10 +168,24 @@ function Project() {
         color: ["pink","white"],
         date: "3일",
         contribution: "100%"
+    },
+    {
+        type : "Project",
+        img : "./../images/9.jpg",
+        title : "최유리포트폴리오",
+        desc : "포트폴리오 제작했습니다.",
+        keyword: ["#운세정보","#재미있는","#미니프로젝트"],
+        color: ["orange","white"],
+        date: "10일",
+        contribution: "100%"
     }
 
 ]
 
+
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, []); 
   return (
     <>
       <Header />

@@ -4,8 +4,6 @@ import ProjectItem from '../components/ProjectItem'
 import MainItem from '../components/MainItem'
 import SkillsItem from '../components/SkillsItem'
 import Contact from '../components/Contact'
-import { useRef } from 'react'
-import { useEffect } from 'react'
 import Header from '../components/Header'
 import HeightBar from '../components/HeightBar'
 import Footer from '../components/Footer'
@@ -46,6 +44,7 @@ function Main() {
 
   return (
     <>
+    <Aside />
     <Header moveToArtist={moveToArtist}/>
     <HeightBar moveToArtist={moveToArtist}/>
     <MainItem/>
