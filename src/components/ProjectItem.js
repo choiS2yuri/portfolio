@@ -57,8 +57,8 @@ const ContentGrid = styled.div`
 
 const ContentItem = styled.div`
     flex-basis: 45%;
-    margin: 10px;
-    height: 25rem;
+    margin-bottom: 50px;
+    height: 20rem;
     border: 1px solid #ddd;
     cursor: pointer;
     position: relative;

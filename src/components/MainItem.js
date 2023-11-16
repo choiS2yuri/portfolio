@@ -28,12 +28,15 @@ const Title = styled.div`
   }
 `
 const Writerstyle = styled.p`
+  font-size: 180px;
+  font-weight: 900;
+  row-gap: 20px;
     span{
       text-align: center;
       color: #fff;
       background-color: orange;
-      font-size: 60px;
-      line-height: 60px;
+      font-size: 100px;
+      line-height: 120px;
       font-weight: 900;
       @media screen and (max-width: 768px){
         text-align: center;
@@ -69,7 +72,7 @@ function MainItem() {
     <>
         <Wrapper>
           <Title>
-            <p>Hello I'm
+            <p>HELLO I'm
              <span>{''}</span></p>
           </Title>
             <Writerstyle>

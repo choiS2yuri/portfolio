@@ -208,7 +208,7 @@ function SkillsItem() {
         <Container id="skills">
             <ContainerWrap>
               <ContainerTitle>
-                <Title>SKills</Title>
+                <Title>SKILLS</Title>
               </ContainerTitle>
               <MySwiper
                 modules={[Navigation, Pagination]}
@@ -217,7 +217,9 @@ function SkillsItem() {
                 navigation
                 pagination={{
                     clickable: true,
-                }}>
+                }}
+                loop={true}
+                >
                      {
                         data.map((e,i)=>{
                             return(
