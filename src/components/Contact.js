@@ -54,6 +54,7 @@ const ContentBox = styled.div`
     span{
       font-size: 35px;
       margin-left: 8px;
+      margin-top: 7px;
     }
   }
 

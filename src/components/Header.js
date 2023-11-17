@@ -54,6 +54,9 @@ const Nav = styled.div`
         flex-basis: 80%; font-weight: bold;
         font-size: 30px; align-items: center;  
         background-color: #fff;
+        li{
+            cursor: pointer;
+        }
     }
     @media (max-width: 680px){
         visibility: hidden;
@@ -105,6 +108,7 @@ const HWrapper=styled.div`
         flex-basis: 100%;
         justify-content: space-around;
         li{
+            cursor: pointer;
             font-size: 20px;
             font-weight: bold;
             color: #fff;

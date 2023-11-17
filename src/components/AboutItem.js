@@ -1,6 +1,7 @@
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faSquareCheck } from '@fortawesome/free-regular-svg-icons'
+import { faLandmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import styled from 'styled-components'
@@ -11,7 +12,7 @@ const Wrap = styled.div`
   /* margin: 50px 0; */
 `
 const Wrapper = styled.div`
-  width: 90%;
+  max-width: 1280px;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -22,14 +23,17 @@ const Title = styled.div`
   flex-basis: 40%;
   margin: auto 0;
   p{
-   font-size : 30px;
-   margin-bottom: 30px;
-   font-weight: bold;
+    font-size : 30px;
+    margin-bottom: 30px;
+    font-weight: bold;
   }
   span{
-    flex-basis: 52%;
+    flex-basis: 43%;
     font-size: 20px;
     line-height: 40px;
+    span{
+      background: linear-gradient(to top,#F3962F, #fff, #fff );
+    }
   }
   @media screen  and (max-width: 768px){
     flex-basis: 80%;
@@ -79,18 +83,35 @@ const RotatedImg = styled.img`
     }
   }
 `
+const Haglyeog = styled.div`
+  flex-basis: 40%;
+  p{
+    margin-top:30px;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 22px;
+    color: #9b9b9b;
+    svg{
+      margin-right: 10px;
+    }
+  }
+
+`
 const Connect = styled.ul`
   width: 100%;
   margin-top: 100px; 
   box-sizing: border-box;
   display: flex;
-  justify-content: end;
   li{
     flex-basis: 30%;
     text-align: end;
     a{
       svg{
         font-size: 25px;
+      }
+      img{
+        width: 25px;
+        height: 25px;
       }
     }
   }
@@ -105,10 +126,10 @@ const ContainerTitle = styled.div`
     &::after{
         content: "";
         position: absolute;
-        width: 5%;
+        width: 7%;
         height: 3px;
         background-color: #F3962F;
-        left: 49.7%; top: 0;; transform: translate(-50%, -50%);
+        left: 50%; top: 0;; transform: translate(-50%, -50%);
     }
     p{
       font-size: 2rem;
@@ -133,13 +154,18 @@ function AboutItem() {
           <Title>
             <p>노력하는 개발자 최유리입니다&#58;&#41;</p>
             <span> 
-            개발자의 길을 걸으며 늦게 시작했지만, 오히려 그 때문에 열심히 노력하고 있습니다.<br/>
-             '늦게 배운 도둑질이 날새는 줄 모른다'는 이 속담을 모토 삼아 후회 대신 더욱 열심히 노력하며, 개발자로서의 제 역량을 키워나가고 있습니다.<br/> 늦게 시작한 만큼 더욱 깊고 풍부한 지식을 갖게 되었으며, 이를 바탕으로 더욱 탁월한 개발자가 되기 위해 노력하고 있습니다.
+            개발자의 길을 걸으며 늦게 시작했지만, 오히려 그 때문에 열심히 노력하고 있습니다.
+            <span>'늦게 배운 도둑질이 날새는 줄 모른다'</span>는 이 속담을 모토 삼아 후회 대신 더욱 열심히 노력하며, 개발자로서의 제 역량을 키워나가고 더욱 탁월한 개발자가 되기 위해 노력하고 있습니다.
             </span>
+            <Haglyeog>
+              <p>
+                <FontAwesomeIcon icon={faLandmark} />&#40;혼합+디지털컨버전스&#41;React를 활용한 프론트엔드 개발자 양성&#40;SPA프로젝트 개발 &#41;A &#95;900시간
+              </p>
+            </Haglyeog>
             <Connect>
-              <li><a target='_blank' href="mailto:example@example.com" rel='noreferrer'><FontAwesomeIcon icon={faEnvelope} /></a></li>
+              <li><a target='_blank' href="mailto:choiyr5256@gmail.com" rel='noreferrer'><FontAwesomeIcon icon={faEnvelope} /></a></li>
               <li><a target='_blank' href="https://github.com/" rel='noreferrer'><FontAwesomeIcon icon={faGithub} /></a></li>
-              <li><a target='_blank' href="https://www.notion.so/invite/186eaa0917b9c13f171c811a198748e69e9bc87e" rel='noreferrer'><FontAwesomeIcon icon={faSquareCheck} /></a></li>
+              <li><a target='_blank' href="https://www.notion.so/8aa8cf9ce4ea411e84c787f036917f48?pvs=4" rel='noreferrer'><img src={`images/notion.jpg`} /></a></li>
             </Connect>
           </Title>
         </Wrapper>

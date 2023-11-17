@@ -84,11 +84,11 @@ const SwiperSlides = styled(SwiperSlide)`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    /* position: relative; */
+    position: relative;
     img {
         display: block;
         width: 60%;
-        height: 60%;
+        height: 50%;
         transition: opacity 0.3s ease;
         /* &:hover {
             opacity: 0.7;

@@ -16,27 +16,33 @@ const Wrapper = styled.div`
 `
 const Title = styled.div`
   height: 100%;
-  font-size: 80px;
-  font-weight: 900;
   display: inline;
   p{
-      color: #F3962F;
-  }
-  @media screen and (max-width: 768px){
-    font-size: 70px;
-    font-weight: 900;
+    font-weight:  900;
+    color: #F3962F;
+    font-size: 120px;
+    letter-spacing: 10px;
+    span{
+
+    }
+    @media screen and (max-width: 768px){
+        font-size: 70px;
+        font-weight: 900;
+        letter-spacing: 3px;
+
+      }
   }
 `
 const Writerstyle = styled.p`
   font-size: 180px;
   font-weight: 900;
-  row-gap: 20px;
+  letter-spacing: 5px;
     span{
       text-align: center;
       color: #fff;
       background-color: orange;
       font-size: 100px;
-      line-height: 120px;
+      line-height: 80px;
       font-weight: 900;
       @media screen and (max-width: 768px){
         text-align: center;
@@ -51,8 +57,6 @@ function MainItem() {
     // const txt = "안녕하세요."
     // const [text, setText] = useState('');
     // const [count, setCount] = useState(0);
-
-
     // useEffect(() => {
     //     const interval = setInterval(() => {
     //       setText(text + txt[count]);
@@ -62,7 +66,6 @@ function MainItem() {
     //         setText('');
     //       }
     //     }, 250);
-    
     //     return () => clearInterval(interval);
     //   }, [count,text]);
 
@@ -72,7 +75,7 @@ function MainItem() {
     <>
         <Wrapper>
           <Title>
-            <p>HELLO I'm
+            <p>Hello I'm
              <span>{''}</span></p>
           </Title>
             <Writerstyle>
