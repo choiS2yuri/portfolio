@@ -97,7 +97,7 @@ const SwiperSlides = styled(SwiperSlide)`
     div {
         position: absolute;
         bottom: -100%;
-        left: 40px;
+        /* left: 40px; */
         width: 10rem;
         height: 15rem;
         margin: 0 auto;
@@ -145,8 +145,6 @@ function SkillsItem() {
           setSlidesPerView(3);
         }
       };
-      
-      // 초기 화면 크기에 따라 slidesPerView 설정
       updateSlidesPerView(mediaQuery);
   },[])
   const data =[
