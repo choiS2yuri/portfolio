@@ -82,7 +82,16 @@ const ProjectDesc = styled.div`
     width: 80%;
     margin: 0 auto;
     button{
-
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      padding: 10px 20px;
+      color: #b0b0b0;
+      margin-right: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover{
+        background-color: #dedede;
+      }
     }
   }
 `
@@ -236,7 +245,8 @@ const handleClick = (index) => {
                       key={i}
                       onClick={() => handleClick(i)}
                       isClick={isClick === i}>
-                      {e} ({count})
+                      {e} 
+                      {/* ({count}) */}
                     </ListItem>
                    )
                   })
