@@ -81,8 +81,8 @@ const ProjectDesc = styled.div`
   p{
     width: 80%;
     margin: 0 auto;
-    svg{
-      margin-right: 10px;
+    button{
+
     }
   }
 `
@@ -189,8 +189,9 @@ function Project() {
         title : "오늘의 운세정보",
         desc : "오늘의 운세정보를 확인할 수 있는 사이트",
         keyword: ["#운세정보","#재미있는","#미니프로젝트"],
-        color: ["F9A8D4","#F472B6"],
+        color: ["#F9A8D4","#F472B6"],
         date: "3일",
+        original: "https://lucky-steel.vercel.app/",
         contribution: "100%"
     },
 
@@ -272,10 +273,10 @@ const handleClick = (index) => {
                           </p>
                           <p style={{textAlign:"end",fontSize:"30px"}}>
                             <a href={e.git} target="_blank" rel="noopener noreferrer">
-                              <FontAwesomeIcon icon={faGithub} style={{color:"gray"}}/>
+                              <button>Github</button>
                             </a>
                             <a href={e.original} target="_blank" rel="noopener noreferrer">
-                              <FontAwesomeIcon icon={faInternetExplorer} style={{color:"gray", marginLeft:"10px"}}/>
+                              <button>Vercel</button>
                             </a>
                           </p>
                         </ProjectDesc>

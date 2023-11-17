@@ -13,7 +13,9 @@ const ContainerWrap = styled.div`
     margin: 0 auto;
     display: flex; flex-wrap: wrap;
     padding: 0 2%;
-
+    @media screen and (max-width: 768px){
+      margin: 0 20px;
+    }
 `
 const ContainerTitle = styled.div`
     width: 100%;
@@ -36,6 +38,9 @@ const ContainerTitle = styled.div`
         text-align: end;
 
         font-size: 18px;
+        @media screen and (max-width: 768px){
+            visibility: visible;
+        }
         a{
             &:hover{
                 color: #F3962F;
