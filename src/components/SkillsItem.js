@@ -151,7 +151,7 @@ function SkillsItem() {
     {
         "img" : "./../images/icons8-html-48.png",
         "title" : "HTML",
-        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
+        "desc" : "웹표준에 준수하여, 웹페이지의 콘텐츠를 구성하고 배치할 수 있다."
     },
     {
         "img" : "./../images/icons8-css3-48.png",
@@ -161,7 +161,7 @@ function SkillsItem() {
     {
         "img" : "./../images/icons8-script-48.png",
         "title" : "javascript",
-        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
+        "desc" : "자바스크립트언어를 이해하고 상황에 맞게 사용할 수 있다."
     },
     {
         "img" : "./../images/icons8-sc-48.png",
