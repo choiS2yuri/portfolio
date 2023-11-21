@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 // import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
@@ -21,7 +22,7 @@ const ContainerTitle = styled.div`
     width: 100%;
     margin-top: 3rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-top: 7rem;
     position: relative;
     &::after{
         content: "";
@@ -97,7 +98,10 @@ const Description = styled.span`
 `;
 function ProjectItem() {
 
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }); 
+      
 
 
     const data =[

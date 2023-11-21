@@ -238,7 +238,7 @@ const handleClick = (index) => {
             </Wrapper>
             <Container>
               <List>
-                {
+                {/* {
                  menuArray.map((e,i)=>{
                    return(
                     <ListItem
@@ -246,11 +246,21 @@ const handleClick = (index) => {
                       onClick={() => handleClick(i)}
                       isClick={isClick === i}>
                       {e} 
-                      {/* ({count}) */}
+                      ({count})
                     </ListItem>
                    )
                   })
-                }
+                } */}
+                { menuArray.map((e,i) => {
+                   const itemCount = data.filter(
+                     item => menuType[i] === "전체" || menuType[i] === item.type).length;
+                     return(
+                     <ListItem key={i}
+                     onClick={() => handleClick(i)} $isClick={isClick === i}>{e}({itemCount})
+                     </ListItem>
+                     )
+                    })
+                  }
               </List>
             </Container>
             <Container>

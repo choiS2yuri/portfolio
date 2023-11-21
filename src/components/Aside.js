@@ -9,7 +9,7 @@ const Wrap = styled.div`
   bottom: 3%;
   right: 3%;
   align-items: center;
-  z-index: 500;
+  z-index: 1002;
   /* opacity: ${({ isactive }) => (isactive ? "1" : "0")};  */
   transition: opacity 1.5s ease;
   @media screen and (max-width: 640px){

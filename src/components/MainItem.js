@@ -68,7 +68,7 @@ function MainItem() {
     //     }, 250);
     //     return () => clearInterval(interval);
     //   }, [count,text]);
-
+    
 
   
   return (

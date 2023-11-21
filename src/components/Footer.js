@@ -3,10 +3,10 @@ import styled from 'styled-components'
 
 
 const Footerwrap = styled.div`
-  width: 100%; height: 300px;
+  width: 100%; height: 150px;
   background-color: rgba(248, 155, 0, 0.5);
   margin-top: 100px;
-  z-index: 1100;
+  z-index: 1001;
   position: relative;
 `
 const Wrapper = styled.div`

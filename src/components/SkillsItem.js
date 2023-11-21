@@ -1,31 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Navigation, Pagination} from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-
 
 
 const Container = styled.div`
     width: 100%;
     height: auto;
-    margin: 150px 0;
+    @media (max-width: 768px) {
+        margin: 20rem  0;
+    }
+  
 `
 const ContainerWrap = styled.div`
     max-width: 1280px;
     margin: 0 auto;
     display: flex; flex-wrap: wrap;
     align-items: center;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 
 `
 const ContainerTitle = styled.div`
     width: 100%;
-    margin-top: 3rem;
     text-align: center;
-    margin-bottom: 1.25rem;
+    margin-top: 7rem;
     position: relative;
     &::after{
         content: "";
@@ -42,162 +40,195 @@ const ContainerTitle = styled.div`
 const Title = styled.h3`
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 2rem;
 `
-
-const MySwiper = styled(Swiper)`
-    flex-basis: 100%;
-    display: flex; flex-wrap: wrap;
-    justify-content: space-between;
-    swiper-pagination {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    background-color: #ddd;
-    margin: 0 5px;
-    opacity: 0.7;
-  }
-
-  .swiper-pagination-bullet-active {
-    opacity: 1;
-    background-color: #F3962F;
-  }
-  .swiper-button-next, .swiper-button-prev {
-    color: #F3962F;
-    font-size: 24px;
-    
-  }
+const SkillsWrap = styled.div`
+    width: 1280px;
+    margin: 10rem auto;
 `
-const SwiperSlides = styled(SwiperSlide)`
-    text-align: center;
-    width: 5rem;
-    height: 16rem;
-    font-size: 18px;
-    background: #fff;
+const BtnList = styled.div`
+    max-width: 1280px;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    img {
-        display: block;
-        width: 60%;
-        height: 50%;
-        transition: opacity 0.3s ease;
-        /* &:hover {
-            opacity: 0.7;
-        } */
-    }
-    div {
-        position: absolute;
-        bottom: -100%;
-        /* left: 40px; */
-        width: 10rem;
-        height: 15rem;
-        margin: 0 auto;
-        background-color: #fff;
-        text-align: center;
-        transition: bottom 0.3s ease;
+    justify-content: start;
+`
+const BtnTitle = styled.div`
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-right: 2rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    background-color: ${({ isClick }) => (isClick ? '#F3962F' : '#fff')};
+    color: ${({ isClick }) => (isClick ? '#fff' : '#000')};
+    font-weight: ${({ isClick }) => (isClick ? 'bold' : 'normal')};
+    @media (max-width: 768px) {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        p {
-            overflow: hidden;
-            opacity: 0;
-            font-size: 18px;
-            transition: opacity 0.3s ease;
-            color: #000;
-            &:first-of-type {
-                font-weight: bold;
-                margin-bottom: 10px;
-                font-size: 22px;
-            }
-        }
     }
+`
+const SkillBox = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 2rem;
+  margin-top: 50px;
+  @media (max-width: 1024px) {
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 1rem;
+  }
 
-    &:hover div {
-        top: 0;
+  @media (max-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 0.5rem;
+  }
+`;
+
+const SkillsImg = styled.div`
+  display: flex;
+  align-items: center;
+  img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
     }
-    &:hover p{
-        opacity: 1;
-        text-align: center;
-        line-height: 18px;
-    }
+    @media (max-width: 768px) {
+    justify-content: center;
+  }
+  }
+`;
+
+const SkillsDesc = styled.div`
+    margin-top: 5rem;
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #555;
+  }
+`;
+
+const SkillItem = styled.div`
+  display: flex;
 `;
 
 
-function SkillsItem() {
-    const [slidesPerView, setSlidesPerView] = useState(1);
+function SkillsItem() {  
+    const skillsArray = ["All","Frontend", "Backend", "Etc"];
+    const skillsType = ["All","frontend", "backend", "etc"];
+    const [isClick, setIsClick] = useState(0);
+    const [menuList, setMenuList] = useState("All");
+    const [clickedImageDesc, setClickedImageDesc] = useState('');
+    // const [count, setCount] = useState();
 
-    useEffect(() => {
-      const mediaQuery = window.matchMedia('(min-width: 1000px)');
-      const updateSlidesPerView = (e) => {
-        if (e.matches) {
-          setSlidesPerView(5);
-        } else {
-          setSlidesPerView(3);
-        }
+    const handleImageClick = (desc) => {
+        setClickedImageDesc(desc);
       };
-      updateSlidesPerView(mediaQuery);
-  },[])
+
+
   const data =[
     {
+        "type":"frontend",
         "img" : "./../images/icons8-html-48.png",
         "title" : "HTML",
-        "desc" : "웹표준에 준수하여, 웹페이지의 콘텐츠를 구성하고 배치할 수 있다."
+        "desc":"웹 표준과 접근성 지침을 준수하여 다양한 웹 페이지를 구축할 수 있습니다."
     },
     {
+        "type":"frontend",
         "img" : "./../images/icons8-css3-48.png",
         "title" : "CSS",
-        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
+        "desc":"스타일기법과 선택자를 사용하여 웹 페이지 제작과 레이아웃을 구현 할 수 있습니다."
     },
     {
+        "type":"frontend",
         "img" : "./../images/icons8-script-48.png",
         "title" : "javascript",
-        "desc" : "자바스크립트언어를 이해하고 상황에 맞게 사용할 수 있다."
+        "desc":"DOM조작과 이벤트 처리 등의 핵심 개념을 이해하고 ES6문법을 활용 할 수 있습니다."
     },
     {
+        "type":"frontend",
         "img" : "./../images/icons8-sc-48.png",
         "title" : "styled-component",
-        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
+        "desc":"컴포넌트의 레이아웃을 구성할 수 있고 props 전달하여 스타일을 동적으로 구현할 수 있습니다."
     },
     {
+        "type":"frontend",
         "img" : "./../images/icons8-sass-48.png",
         "title" : "sass",
-        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
+        "desc":"변수, 중첩 등을 적극 활용하여 가독성을 높이고 유지보수에 용이하게 작성 할 수 있습니다."
     },
     {
+        "type":"frontend",
         "img" : "./../images/icons8-react-48.png",
         "title" : "react",
-        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
+        "desc":"컴포넌트의 재사용성을 극대화하여 코드의 효율성을 높이고 다양한 Hook을 활용 할 수 있습니다."
     },
     {
+        "type":"frontend",
         "img" : "./../images/icons8-typescript-48.png",
         "title" : "typescript",
-        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
+        "desc":"자바스크립트 코드에 타입을 명시적으로 적용해 코드의 안전성을 높이고 오류를 방지 할 수 있습니다,"
     },
     {
-        "img" : "./../images/icons8-nodejs-48.png",
+        "type":"backend",
+        "img" : "./../images/icons8-node-48.png",
         "title" : "node.js",
-        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
+        "desc": "비동기 I/O 처리를 이해하고 있으며, 간단한 백엔드 로직을 구현하는데 필요한 기본적인 Node.js 기능을 사용할 수 있습니다."
     },
     {
+        "type":"backend",
         "img" : "./../images/icons8-firebase-48.png",
         "title" : "firebase",
-        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
+        "desc": "실시간 데이터베이스를 구현하고 사용자 인증 기능을 개발 할 수 있습니다, 또한 웹 애플리케이션과 데이터베이스를 연동하는 방법에 대한 이해가 있습니다,"
     },
     {
+        "type":"backend",
         "img" : "./../images/icons8-mongodb-48.png",
         "title" : "mongodb",
-        "desc" : "웹표준에 준수하여, 마크업을 할 수 있으며, float이 아닌 flex 및 grid를 활용하여 레이아웃을 구성할 수 있다."
-    }
+        "desc" : "간단한 데이터 조작을 위한 CRUD 연산을 수행할 수 있으며, 데이터를 활용해 관리의 기본적인 방법을 숙지하고 있습니다."
+    },
+    {
+        "type":"frontend",
+        "img" : "./../images/icons8-tailwind-css-48.png",
+        "title" : "tailwindcss",
+        "desc" : "반응형 웹 디자인을 구현하고 클래스를 사용하여 모바일, 태블릿,데스크톱 등 다양한 디바이스에 맞춘 레이아웃을 빠르게 제작할 수 있습니다."
+    },
+    {
+        "type":"frontend",
+        "img" : "./../images/icons8-next-48.png",
+        "title" : "nextjs",
+        "desc" : "기본적인 기능을 이해하고,ssr을 활용해 간단한 프로젝트를 제작한 경험이 있으며, 추후 더 학습할 생각이 있습니다."
+    },
+    {
+        "type":"backend",
+        "img" : "./../images/icons8-mysql-48.png",
+        "title" : "MySQL",
+        "desc" : "기본적인 SQL 문법을 이해하고 간단한 데이터 조작과 조회를 할 수 있습니다. 또한 CRUD연산을 통해 데이터를 활용할 수 있습니다."
+    },
+    {
+        "type":"etc",
+        "img" : "./../images/icons8-figma-48.png",
+        "title" : "figma",
+        "desc" : "사용자 중심의 UI/UX 디자인을 구현할 수 있습니다."
+    },    
+    {
+        "type":"etc",
+        "img" : "./../images/icons8-github-64.png",
+        "title" : "github",
+        "desc" : "소스코드의 버전 관리를 체계적으로 수행할 수 있고 브랜치를 통한 작업 분리, 풀 리퀘스트를 통한 코드 리뷰 등을 통해 팀프로젝트의 효율성을 높일 수 있습니다."
+    },    
+    {
+        "type":"etc",
+        "img" : "./../images/icons8-notion-50.png",
+        "title" : "notion",
+        "desc" : "노션을 활용하여 문서화 할 수 있습니다."
+    },
+    {
+        "type":"etc",
+        "img" : "./../images/icons8-vercel-48.png",
+        "title" : "vercel",
+        "desc" : "프로젝트 버셀 배포는 물론 변경사항을 반영하여 유지보수를 할 수 있습니다."
+    },
 ]
     
 
@@ -208,30 +239,34 @@ function SkillsItem() {
               <ContainerTitle>
                 <Title>SKILLS</Title>
               </ContainerTitle>
-              <MySwiper
-                modules={[Navigation, Pagination]}
-                slidesPerView={slidesPerView}
-                spaceBetween={30}
-                navigation
-                pagination={{
-                    clickable: true,
-                }}
-                loop={true}
-                >
-                     {
-                        data.map((e,i)=>{
-                            return(
-                            <SwiperSlides key={i}>
-                                <img src={e.img} alt={e.title} />
-                                <div>
-                                    <p>{e.title}</p>
-                                    <p>{e.desc}</p>
-                                </div>
-                            </SwiperSlides>
-                            )
+              <SkillsWrap>
+                <BtnList>
+                    {
+                        skillsArray.map((e,i)=>{
+                        return(
+                            <BtnTitle key={i} onClick={()=>{setIsClick(i); setMenuList(skillsType[i])}} isClick={isClick === i}>
+                            {e} 
+                            </BtnTitle>
+                        )
                         })
                     }
-            </MySwiper>
+                </BtnList>
+                <SkillBox>
+                    {
+                        data.filter((e)=> menuList === "All" || menuList === e.type).map((e,i)=>{
+                            return(
+                                <SkillItem key={i}>
+                                    <SkillsImg key={i}>
+                                        <img src={e.img} alt={e.title} style={{width:"50px", height:"50px"}}  onClick={() => {handleImageClick(e.desc); }}/>
+                                    </SkillsImg>
+                                </SkillItem>
+                        )}
+                    )}
+                </SkillBox>
+                <SkillsDesc>
+                <p>{clickedImageDesc}</p>
+                </SkillsDesc>
+              </SkillsWrap>
             </ContainerWrap>
         </Container>
     </>
