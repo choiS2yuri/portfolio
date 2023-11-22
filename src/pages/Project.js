@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import styled from 'styled-components'
+import styled, { StyleSheetManager } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareCheck } from '@fortawesome/free-regular-svg-icons'
 import Aside from '../components/Aside'
@@ -142,8 +142,8 @@ function Project() {
       keyword: ["#대구기업","#리디자인","#깔끔한"],
       color: ["#00a1e9","#ffe100","#dfdfdf"],
       date: "15일",
-      original : "",
-      git: "",
+      original : "https://banolim.vercel.app/",
+      git: "https://github.com/choiS2yuri/banolim",
       contribution: "100%"
     },
     {
@@ -155,7 +155,7 @@ function Project() {
         color: ["#009223","#ffc300","#292929"],
         date: "10일",
         original : "https://subway-henna.vercel.app/",
-        git: "",
+        git: "https://github.com/choiS2yuri/subway",
         contribution: "100%"
     },
     {
@@ -167,7 +167,7 @@ function Project() {
       color: ["#b5121b", "#6f6f6f" , "#de898e"],
       date: "5일",
       original : "https://chois2yuri.github.io/horryscoffe/",
-      git: "",
+      git: "https://github.com/choiS2yuri/horryscoffe",
       contribution: "100%"
     },
     {
@@ -179,7 +179,7 @@ function Project() {
         color: ["green","blue","gray"],
         date: "2일",
         original : "https://quiz-teal-beta.vercel.app/",
-        git: "",
+        git: "https://github.com/choiS2yuri/quiz",
         contribution: "100%"
     },        
     {
@@ -191,7 +191,7 @@ function Project() {
         color: ["#818cf8","#fb923c","#ec4899"],
         date: "3일",
         original : "https://parcel-psi-bay.vercel.app/",
-        git: "",
+        git: "https://github.com/choiS2yuri/parcel",
         contribution: "100%"
     },
     {
@@ -203,7 +203,7 @@ function Project() {
       color: ["#e9f1f6","lightskyblue","#333"],
       date: "5일",
       original : "https://festival-kappa.vercel.app/",
-      git: "",
+      git: "https://github.com/choiS2yuri/-festival",
       contribution: "100%"
      },
     {
@@ -215,7 +215,7 @@ function Project() {
         color: ["#F9A8D4","#F472B6"],
         date: "3일",
         original: "https://lucky-steel.vercel.app/",
-        git: "",
+        git: "https://github.com/choiS2yuri/lucky",
         contribution: "100%"
     },
 
@@ -243,87 +243,89 @@ const handleClick = (index) => {
 // }, [count]);
 
   return (
-    <>
-    <Aside />
-      <Header />
-        <>
-          <Wrap>
-            <Wrapper>
-              <Title>프로젝트</Title>
-            </Wrapper>
-            <Container>
-              <List>
-                {/* {
-                 menuArray.map((e,i)=>{
-                   return(
-                    <ListItem
-                      key={i}
-                      onClick={() => handleClick(i)}
-                      isClick={isClick === i}>
-                      {e} 
-                      ({count})
-                    </ListItem>
-                   )
-                  })
-                } */}
-                { menuArray.map((e,i) => {
-                   const itemCount = data.filter(
-                     item => menuType[i] === "전체" || menuType[i] === item.type).length;
-                     return(
-                     <ListItem key={i}
-                     onClick={() => handleClick(i === isclick)} $isclick={isclick === i}>{e}({itemCount})
-                     </ListItem>
-                     )
+    <StyleSheetManager shouldForwardProp={(prop) => prop !== 'isclick'}>
+      <>
+      <Aside />
+        <Header />
+          <>
+            <Wrap>
+              <Wrapper>
+                <Title>프로젝트</Title>
+              </Wrapper>
+              <Container>
+                <List>
+                  {/* {
+                  menuArray.map((e,i)=>{
+                    return(
+                      <ListItem
+                        key={i}
+                        onClick={() => handleClick(i)}
+                        isClick={isClick === i}>
+                        {e} 
+                        ({count})
+                      </ListItem>
+                    )
+                    })
+                  } */}
+                  { menuArray.map((e,i) => {
+                    const itemCount = data.filter(
+                      item => menuType[i] === "전체" || menuType[i] === item.type).length;
+                      return(
+                      <ListItem key={i}
+                      onClick={() => handleClick(i)} isclick={isclick === i}>{e}({itemCount})
+                      </ListItem>
+                      )
+                      })
+                    }
+                </List>
+              </Container>
+              <Container>
+                  {
+                    data.filter((e)=> cateGory === "전체" || cateGory === e.type).map((e,i)=>{
+                      return(
+                        <ProjectList key={i}>
+                          <ProjectItem>
+                            <img src={e.img} alt={e.title} />
+                          </ProjectItem>
+                          <ProjectDesc>
+                            <h3>{e.title}</h3>
+                            <p>
+                            <FontAwesomeIcon icon={faSquareCheck} />
+                              설명 : {e.desc}
+                            </p>
+                            <p>
+                            <FontAwesomeIcon icon={faSquareCheck} />
+                              기간 : {e.date}
+                            </p>
+                            <p>
+                            <FontAwesomeIcon icon={faSquareCheck} />
+                              기여도 : {e.contribution}
+                            </p>
+                            <p>
+                            <FontAwesomeIcon icon={faSquareCheck} />
+                              컬러 : {e.color.map((color, index) => (
+                              <span key={index} style={{ backgroundColor: color, padding: '2px', marginRight: '10px', width:'10px',height:'10px',display:'inline-block'}}></span>
+                              ))}
+                            </p>
+                            <p style={{textAlign:"end",fontSize:"30px"}}>
+                              <a href={e.git} target="_blank" rel="noopener noreferrer">
+                                <button>Github</button>
+                              </a>
+                              <a href={e.original} target="_blank" rel="noopener noreferrer">
+                                <button>Vercel</button>
+                              </a>
+                            </p>
+                          </ProjectDesc>
+                        </ProjectList>
+                      )
                     })
                   }
-              </List>
-            </Container>
-            <Container>
-                {
-                   data.filter((e)=> cateGory === "전체" || cateGory === e.type).map((e,i)=>{
-                    return(
-                      <ProjectList key={i}>
-                        <ProjectItem>
-                          <img src={e.img} alt={e.title} />
-                        </ProjectItem>
-                        <ProjectDesc>
-                          <h3>{e.title}</h3>
-                          <p>
-                          <FontAwesomeIcon icon={faSquareCheck} />
-                            설명 : {e.desc}
-                          </p>
-                          <p>
-                          <FontAwesomeIcon icon={faSquareCheck} />
-                            기간 : {e.date}
-                          </p>
-                          <p>
-                          <FontAwesomeIcon icon={faSquareCheck} />
-                            기여도 : {e.contribution}
-                          </p>
-                          <p>
-                          <FontAwesomeIcon icon={faSquareCheck} />
-                            컬러 : {e.color.map((color, index) => (
-                            <span key={index} style={{ backgroundColor: color, padding: '2px', marginRight: '10px', width:'10px',height:'10px',display:'inline-block'}}></span>
-                            ))}
-                          </p>
-                          <p style={{textAlign:"end",fontSize:"30px"}}>
-                            <a href={e.git} target="_blank" rel="noopener noreferrer">
-                              <button>Github</button>
-                            </a>
-                            <a href={e.original} target="_blank" rel="noopener noreferrer">
-                              <button>Vercel</button>
-                            </a>
-                          </p>
-                        </ProjectDesc>
-                      </ProjectList>
-                    )
-                   })
-                }
-            </Container>
-          </Wrap>
-        </>
-      <Footer />
-    </>
+              </Container>
+            </Wrap>
+          </>
+        <Footer />
+      </>
+    </StyleSheetManager>
 
   )
 }

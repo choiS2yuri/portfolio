@@ -6,7 +6,7 @@ const Wrapbar = styled.div`
   height: 1000vh;
   position: fixed;
   background-color: #F3962F;
-  z-index: 990;
+  z-index: 1000;
 
   @media screen and (max-width: 768px) {
     visibility: hidden;

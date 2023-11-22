@@ -152,10 +152,10 @@ const toggleMenu = ()=>{
                 </Logo>
                 <Nav>
                     <ul>
-                        <li onClick={() => {scrollToTop(); moveToArtist("about");}}>ABOUT</li>
-                        <li onClick={() => {scrollToTop();moveToArtist("skills")}}>SKILLS</li>
-                        <li onClick={() => {scrollToTop();moveToArtist("project")}}>PROJECT</li>
-                        <li onClick={() => {scrollToTop();moveToArtist("contact")}}>CONTACT</li>
+                        <li onClick={() => {moveToArtist("about");}}>ABOUT</li>
+                        <li onClick={() => {moveToArtist("skills")}}>SKILLS</li>
+                        <li onClick={() => {moveToArtist("project")}}>PROJECT</li>
+                        <li onClick={() => {moveToArtist("contact")}}>CONTACT</li>
                     </ul>
                 </Nav>
             </Wrapper>
@@ -171,10 +171,10 @@ const toggleMenu = ()=>{
             <HWrap style={{right: `${isOpen ? "0" : "100%"}`}} $isOpen={isOpen}>
                 <HWrapper>
                     <ul>
-                        <li onClick={() => {scrollToTop(); moveToArtist("about");}}>ABOUT</li>
-                        <li onClick={() => {scrollToTop();moveToArtist("skills")}}>SKILLS</li>
-                        <li onClick={() => {scrollToTop();moveToArtist("project")}}>PROJECT</li>
-                        <li onClick={() => {scrollToTop();moveToArtist("contact")}}>CONTACT</li>
+                        <li onClick={() => {moveToArtist("about");}}>ABOUT</li>
+                        <li onClick={() => {moveToArtist("skills")}}>SKILLS</li>
+                        <li onClick={() => {moveToArtist("project")}}>PROJECT</li>
+                        <li onClick={() => {moveToArtist("contact")}}>CONTACT</li>
                     </ul>
                 </HWrapper>
             </HWrap>
