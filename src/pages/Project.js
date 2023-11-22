@@ -4,19 +4,13 @@ import Footer from '../components/Footer'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareCheck } from '@fortawesome/free-regular-svg-icons'
-import { faPalette } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
-import { faGit, faGithub, faInternetExplorer } from '@fortawesome/free-brands-svg-icons'
 import Aside from '../components/Aside'
 
-                //     <h3 className="text-center font-blod text-xl sm:text-2xl lg:text-3xl">포트폴리오</h3>
-                // </div>
-                // <div className="mt-8">
-                //     <Project />
 
 const Wrap = styled.div`
  width: 100%; 
- padding: 50px 2% 32px; margin-top: 50px; 
+ padding: 50px 0 32px;  
+ margin: 50px auto 0;
 `
 
 const Wrapper = styled.div`
@@ -27,13 +21,22 @@ const Wrapper = styled.div`
   border: 1px solid #ddd; */
 `
 const Title = styled.div`
-  text-align: center; font-weight: bold;
+  text-align: center; 
+  font-weight: bold;
   font-size: 3rem;
 `
 const Container = styled.div`
-  margin-top: 2rem;
   max-width: 1280px;
   margin: 0 auto;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  @media (max-width: 1024px) {
+    flex-basis: 20%;
+  }
+  @media (max-width: 768px) {
+
+  }
 `
 const List = styled.ul`
   display: flex;
@@ -41,9 +44,9 @@ const List = styled.ul`
   width: 100%;
 `
 const ListItem = styled.li`
-    background-color: ${({isClick}) => (isClick ? '#F3962F' : '#fff')};
-    color: ${({isClick}) => (isClick ? '#fff' : '#000')};
-    font-weight: ${({isClick}) => (isClick ? 'bold' : 'normal')};;
+    background-color: ${({isclick}) => (isclick ? '#F3962F' : '#fff')};
+    color: ${({isclick}) => (isclick ? '#fff' : '#000')};
+    font-weight: ${({isclick}) => (isclick ? 'bold' : 'normal')};;
     cursor: pointer;
     margin-right: 1rem;
     border: 1px solid #ddd;
@@ -93,13 +96,16 @@ const ProjectDesc = styled.div`
         background-color: #dedede;
       }
     }
+    svg{
+      margin-right: 10px;
+    }
   }
 `
 
 function Project() {
   const menuArray = ["전체", "클론", "프로젝트", "웹앱"];
   const menuType = ["전체", "Clone", "Project", "Webapp"];
-  const [isClick, setIsClick] = useState(0);
+  const [isclick, setIsClick] = useState(0);
   const [cateGory, setCateGory] = useState("전체");
   const [count, setCount] = useState();
 
@@ -112,6 +118,8 @@ function Project() {
       keyword: ["about","#프론트엔드","#개발자"],
       color: ["orange","black","#ddd"],
       date: "14일",
+      original : "https://project-greenping-aql4akyqb-kkkkinderjoy.vercel.app/",
+      git: "https://github.com/kkkkinderjoy/project_greenping.git",
       contribution: "100%"
      },  
      {   
@@ -135,6 +143,7 @@ function Project() {
       color: ["#00a1e9","#ffe100","#dfdfdf"],
       date: "15일",
       original : "",
+      git: "",
       contribution: "100%"
     },
     {
@@ -146,6 +155,7 @@ function Project() {
         color: ["#009223","#ffc300","#292929"],
         date: "10일",
         original : "https://subway-henna.vercel.app/",
+        git: "",
         contribution: "100%"
     },
     {
@@ -157,6 +167,7 @@ function Project() {
       color: ["#b5121b", "#6f6f6f" , "#de898e"],
       date: "5일",
       original : "https://chois2yuri.github.io/horryscoffe/",
+      git: "",
       contribution: "100%"
     },
     {
@@ -168,6 +179,7 @@ function Project() {
         color: ["green","blue","gray"],
         date: "2일",
         original : "https://quiz-teal-beta.vercel.app/",
+        git: "",
         contribution: "100%"
     },        
     {
@@ -179,6 +191,7 @@ function Project() {
         color: ["#818cf8","#fb923c","#ec4899"],
         date: "3일",
         original : "https://parcel-psi-bay.vercel.app/",
+        git: "",
         contribution: "100%"
     },
     {
@@ -190,6 +203,7 @@ function Project() {
       color: ["#e9f1f6","lightskyblue","#333"],
       date: "5일",
       original : "https://festival-kappa.vercel.app/",
+      git: "",
       contribution: "100%"
      },
     {
@@ -201,6 +215,7 @@ function Project() {
         color: ["#F9A8D4","#F472B6"],
         date: "3일",
         original: "https://lucky-steel.vercel.app/",
+        git: "",
         contribution: "100%"
     },
 
@@ -256,7 +271,7 @@ const handleClick = (index) => {
                      item => menuType[i] === "전체" || menuType[i] === item.type).length;
                      return(
                      <ListItem key={i}
-                     onClick={() => handleClick(i)} $isClick={isClick === i}>{e}({itemCount})
+                     onClick={() => handleClick(i === isclick)} $isclick={isclick === i}>{e}({itemCount})
                      </ListItem>
                      )
                     })

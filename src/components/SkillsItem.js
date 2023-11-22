@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import { faComputerMouse } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useState } from 'react'
+import styled, { StyleSheetManager } from 'styled-components'
 
 
 const Container = styled.div`
     width: 100%;
-    height: auto;
     @media (max-width: 768px) {
         margin: 20rem  0;
     }
@@ -32,9 +33,9 @@ const ContainerTitle = styled.div`
         height: 3px;
         background-color: #F3962F;
         left: 49.7%; top: 0;; transform: translate(-50%, -50%);
-    }
-    @media screen and (max-width: 768px){
-      visibility: hidden;
+        @media screen and (max-width: 768px){
+          visibility: hidden;
+        }
     }
 `
 const Title = styled.h3`
@@ -42,13 +43,23 @@ const Title = styled.h3`
     font-weight: bold;
 `
 const SkillsWrap = styled.div`
-    width: 1280px;
+    width: 100%;
     margin: 10rem auto;
+    display: flex;
+    justify-content: space-around;
+    @media (max-width: 1024px) {
+
+    }
+    @media (max-width: 768px) {
+
+    }
 `
 const BtnList = styled.div`
     max-width: 1280px;
+    width: 40%;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
+    flex-direction: column;
 `
 const BtnTitle = styled.div`
     border: 1px solid #ddd;
@@ -57,66 +68,117 @@ const BtnTitle = styled.div`
     padding: 0.5rem;
     border-radius: 10px;
     letter-spacing: 2px;
-    background-color: ${({ isClick }) => (isClick ? '#F3962F' : '#fff')};
-    color: ${({ isClick }) => (isClick ? '#fff' : '#000')};
-    font-weight: ${({ isClick }) => (isClick ? 'bold' : 'normal')};
+    background-color: ${({ isclick }) => (isclick ? '#F3962F' : '#fff')};
+    color: ${({ isclick }) => (isclick ? '#fff' : '#000')};
+    font-weight: ${({ isclick }) => (isclick ? 'bold' : 'normal')};
     @media (max-width: 768px) {
         display: flex;
     }
 `
+// const SkillBox = styled.div`
+//   max-width: 1280px;
+//   margin: 0 auto;
+//   display: grid;
+//   grid-template-columns: repeat(8, 1fr);
+//   grid-gap: 2rem;
+//   margin-top: 50px;
+//   @media (max-width: 1024px) {
+//       grid-template-columns: repeat(6, 1fr);
+//       grid-gap: 1rem;
+//   }
+
+//   @media (max-width: 768px) {
+//       grid-template-columns: repeat(4, 1fr);
+//       grid-gap: 0.5rem;
+//   }
+// `;
 const SkillBox = styled.div`
   max-width: 1280px;
+  width: 50%;
+  height: 12.5rem;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 2rem;
-  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
   @media (max-width: 1024px) {
-      grid-template-columns: repeat(6, 1fr);
-      grid-gap: 1rem;
+    width: 40%;
+    margin: 0 auto;
   }
-
   @media (max-width: 768px) {
-      grid-template-columns: repeat(4, 1fr);
-      grid-gap: 0.5rem;
+
   }
 `;
+// const SkillItem = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   margin-bottom: 2rem;
+//   align-items: center;
+// `;
 
 const SkillsImg = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
   img {
-    width: 50px;
-    height: 50px;
+    display: block;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
     &:hover {
       transform: scale(1.1);
     }
     @media (max-width: 768px) {
-    justify-content: center;
-  }
+      justify-content: center;
+    }
   }
 `;
+// const SkillsImg = styled.div`
+//   display: flex;
+//   align-items: center;
+//   img {
+//     width: 50px;
+//     height: 50px;
+//     cursor: pointer;
+//     transition: transform 0.3s ease-in-out;
+//     &:hover {
+//       transform: scale(1.1);
+//     }
+//     @media (max-width: 768px) {
+//     justify-content: center;
+//   }
+//   }
+// `;
 
+// const SkillItem = styled.div`
+//   display: flex;
+// `;
 const SkillsDesc = styled.div`
     margin-top: 5rem;
-  p {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    color: #555;
-  }
+    border: 1px solid #ddd;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    p{
+       font-size: 1rem;
+       color: #555;
+       line-height: 3rem;
+       padding-left: 0.8rem;
+       svg{
+        color: #F3962F;
+        margin-right: 1rem;
+       }
+       }
 `;
 
-const SkillItem = styled.div`
-  display: flex;
-`;
 
 
 function SkillsItem() {  
     const skillsArray = ["All","Frontend", "Backend", "Etc"];
     const skillsType = ["All","frontend", "backend", "etc"];
-    const [isClick, setIsClick] = useState(0);
+    const [isclick, setIsClick] = useState(0);
     const [menuList, setMenuList] = useState("All");
     const [clickedImageDesc, setClickedImageDesc] = useState('');
     // const [count, setCount] = useState();
@@ -233,43 +295,43 @@ function SkillsItem() {
     
 
   return (
-    <>
-        <Container id="skills">
-            <ContainerWrap>
-              <ContainerTitle>
-                <Title>SKILLS</Title>
-              </ContainerTitle>
-              <SkillsWrap>
-                <BtnList>
-                    {
-                        skillsArray.map((e,i)=>{
-                        return(
-                            <BtnTitle key={i} onClick={()=>{setIsClick(i); setMenuList(skillsType[i])}} isClick={isClick === i}>
-                            {e} 
-                            </BtnTitle>
-                        )
-                        })
-                    }
-                </BtnList>
-                <SkillBox>
-                    {
-                        data.filter((e)=> menuList === "All" || menuList === e.type).map((e,i)=>{
+    <StyleSheetManager shouldForwardProp={(prop) => prop !== 'isclick'}>
+        <>
+            <Container id="skills">
+                <ContainerWrap>
+                <ContainerTitle>
+                    <Title>SKILLS</Title>
+                </ContainerTitle>
+                <SkillsWrap>
+                    <BtnList>
+                        {
+                            skillsArray.map((e,i)=>{
                             return(
-                                <SkillItem key={i}>
+                                <BtnTitle key={i} onClick={()=>{setIsClick(i); setMenuList(skillsType[i])}} isclick={isclick === i}>
+                                {e} 
+                                </BtnTitle>
+                            )
+                            })
+                        }
+                    </BtnList>
+                    <SkillBox>
+                        {
+                            data.filter((e)=> menuList === "All" || menuList === e.type).map((e,i)=>{
+                                return(
                                     <SkillsImg key={i}>
-                                        <img src={e.img} alt={e.title} style={{width:"50px", height:"50px"}}  onClick={() => {handleImageClick(e.desc); }}/>
+                                        <img src={e.img} alt={e.title} style={{width:"2.3rem", height:"3rem"}}  onClick={() => {handleImageClick(e.desc);}}/>
                                     </SkillsImg>
-                                </SkillItem>
+                            )}
                         )}
-                    )}
-                </SkillBox>
+                    </SkillBox>
+                </SkillsWrap>
                 <SkillsDesc>
-                <p>{clickedImageDesc}</p>
+                    <p><FontAwesomeIcon icon={faComputerMouse}/>{clickedImageDesc}</p>
                 </SkillsDesc>
-              </SkillsWrap>
-            </ContainerWrap>
-        </Container>
-    </>
+                </ContainerWrap>
+            </Container>
+        </>
+    </StyleSheetManager>
   )
 }
 

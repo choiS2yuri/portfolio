@@ -31,7 +31,6 @@ function Main() {
   //     block: "center",
   //   });
   // };
-
   const moveToArtist = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -46,7 +45,7 @@ function Main() {
     <>
     <Aside />
     <Header moveToArtist={moveToArtist}/>
-    <HeightBar moveToArtist={moveToArtist}/>
+    {/* <HeightBar moveToArtist={moveToArtist}/> */}
     <MainItem/>
     <AboutItem  id="about"/>
     <SkillsItem id="skills"/>

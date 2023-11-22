@@ -84,7 +84,8 @@ const RotatedImg = styled.img`
   }
 `
 const SnsLink = styled.div`
-  flex-basis: 40%;
+  width: 100%;
+  text-align: end;
   p{
     margin-top:30px;
     font-size: 18px;
@@ -123,38 +124,15 @@ const ContainerTitle = styled.div`
     margin-top: 6.5rem;
     margin-bottom: 1.25rem;
     position: relative;
-    &::after{
-        content: "";
-        position: absolute;
-        width: 7%;
-        height: 3px;
-        background-color: #F3962F;
-        left: 50%; top: 0; transform: translate(-50%, -50%);
-    }
     p{
       font-size: 2rem;
       font-weight: bold;
     }
     @media screen and (max-width: 768px){
-      &::after {
-        content: "";
-        width: 4px;
-        height: 100%;
-        background-color: #f3962f;
-        left: 39%; top: 0; transform: translate(0, 0);
-      }
+      
     }
     @media screen and (min-width: 769px) and (max-width: 1024px) {
-    &::after {
-      content: "";
-      width: 4px; 
-      height: 20%;
-      background-color: #f3962f;
-      left: 44%; 
-      top: 0;
-      transform: translate(0, 0); 
-    }
-  }
+     }
 `
 
 function AboutItem() {
@@ -176,6 +154,9 @@ function AboutItem() {
             <SnsLink>
               <p>
                 <FontAwesomeIcon icon={faLandmark} />&#40;혼합+디지털컨버전스&#41;React를 활용한 프론트엔드 개발자 양성&#40;SPA프로젝트 개발 &#41;A&#95;-900시간
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faLandmark} />&#40;그린 온라인캠프&#41;웹퍼블리싱 & 웹개발을 위한 코딩 기초&#95;2023년 7월 5일~ 8월 2일
               </p>
             </SnsLink>
             <Connect>

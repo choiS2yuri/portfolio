@@ -1,5 +1,3 @@
-
-import React, { useState } from 'react'
 import { useEffect } from 'react'
 // import { useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -31,13 +29,12 @@ const ContainerTitle = styled.div`
         height: 3px;
         background-color: #F3962F;
         left: 50%; top: 0;; transform: translate(-50%, -50%);
-    }
-    @media screen and (max-width: 768px){
-      visibility: hidden;
+        @media screen and (max-width: 768px){
+          visibility: hidden;
+        }
     }
     p{
         text-align: end;
-
         font-size: 18px;
         @media screen and (max-width: 768px){
             visibility: visible;
@@ -67,7 +64,6 @@ const ContentItem = styled.div`
     height: 20rem;
     border: 1px solid #ddd;
     cursor: pointer;
-    position: relative;
     transition: 0.3s;
     box-sizing: border-box; 
     img{
@@ -97,7 +93,7 @@ const Description = styled.span`
     transition: 0.3s;
 `;
 function ProjectItem() {
-
+   
     useEffect(() => {
         window.scrollTo(0, 0);
       }); 

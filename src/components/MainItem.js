@@ -18,13 +18,11 @@ const Title = styled.div`
   height: 100%;
   display: inline;
   p{
-    font-weight:  900;
-    color: #F3962F;
-    font-size: 120px;
+    font-weight: 700;
+    color: transparent; -webkit-text-stroke: 4px #F3962F;
+    font-size: 120px;  
+    font-family: 'KCC-Ganpan', sans-serif;
     letter-spacing: 10px;
-    span{
-
-    }
     @media screen and (max-width: 768px){
         font-size: 70px;
         font-weight: 900;
@@ -38,6 +36,7 @@ const Writerstyle = styled.p`
   font-weight: 900;
   letter-spacing: 5px;
     span{
+      font-family: 'KCC-Ganpan', sans-serif;
       text-align: center;
       color: #fff;
       background-color: orange;
@@ -52,6 +51,7 @@ const Writerstyle = styled.p`
       }
     }
 `
+
 
 function MainItem() {
     // const txt = "안녕하세요."
@@ -69,14 +69,13 @@ function MainItem() {
     //     return () => clearInterval(interval);
     //   }, [count,text]);
     
-
-  
+    
   return (
     <>
         <Wrapper>
           <Title>
-            <p>Hello I'm
-             <span>{''}</span></p>
+            <p>Hello I'm</p>
+             {''}
           </Title>
             <Writerstyle>
               <Typewriter 
