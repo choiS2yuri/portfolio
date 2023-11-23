@@ -6,7 +6,7 @@ import styled, { StyleSheetManager } from 'styled-components'
 
 const Container = styled.div`
     width: 100%;
-    overflow-x: hidden; 
+    height: 100%;
     @media (max-width: 768px) {
         margin: 20rem  0;
     }
@@ -14,6 +14,7 @@ const Container = styled.div`
 `
 const ContainerWrap = styled.div`
     max-width: 1280px;
+    height: 100%;
     margin: 0 auto;
     display: flex; flex-wrap: wrap;
     align-items: center;
@@ -172,7 +173,6 @@ function SkillsItem() {
     const [isclick, setIsClick] = useState(0);
     const [menuList, setMenuList] = useState("All");
     const [clickedImageDesc, setClickedImageDesc] = useState('');
-    // const [count, setCount] = useState();
 
     const handleImageClick = (desc) => {
         setClickedImageDesc(desc);
@@ -290,35 +290,35 @@ function SkillsItem() {
         <>
             <Container id="skills">
                 <ContainerWrap>
-                <ContainerTitle>
-                    <Title>SKILLS</Title>
-                </ContainerTitle>
-                <SkillsWrap>
-                    <BtnList>
-                        {
-                            skillsArray.map((e,i)=>{
-                            return(
-                                <BtnTitle key={i} onClick={()=>{setIsClick(i); setMenuList(skillsType[i])}} isclick={isclick === i}>
-                                {e} 
-                                </BtnTitle>
-                            )
-                            })
-                        }
-                    </BtnList>
-                    <SkillBox>
-                        {
-                            data.filter((e)=> menuList === "All" || menuList === e.type).map((e,i)=>{
+                    <ContainerTitle>
+                        <Title>SKILLS</Title>
+                    </ContainerTitle>
+                    <SkillsWrap>
+                        <BtnList>
+                            {
+                                skillsArray.map((e,i)=>{
                                 return(
-                                    <SkillsImg key={i}>
-                                        <img src={e.img} alt={e.title} style={{width:"2.3rem", height:"3rem"}}  onClick={() => {handleImageClick(e.desc);}}/>
-                                    </SkillsImg>
+                                    <BtnTitle key={i} onClick={()=>{setIsClick(i); setMenuList(skillsType[i])}} isclick={isclick === i}>
+                                    {e} 
+                                    </BtnTitle>
+                                )
+                                })
+                            }
+                        </BtnList>
+                        <SkillBox>
+                            {
+                                data.filter((e)=> menuList === "All" || menuList === e.type).map((e,i)=>{
+                                    return(
+                                        <SkillsImg key={i}>
+                                            <img src={e.img} alt={e.title} style={{width:"2.3rem", height:"3rem"}}  onClick={() => {handleImageClick(e.desc);}}/>
+                                        </SkillsImg>
+                                )}
                             )}
-                        )}
-                    </SkillBox>
-                </SkillsWrap>
-                <SkillsDesc>
-                    <p><FontAwesomeIcon icon={faComputerMouse}/>{clickedImageDesc}</p>
-                </SkillsDesc>
+                        </SkillBox>
+                    </SkillsWrap>
+                    <SkillsDesc>
+                        <p><FontAwesomeIcon icon={faComputerMouse}/>{clickedImageDesc}</p>
+                    </SkillsDesc>
                 </ContainerWrap>
             </Container>
         </>

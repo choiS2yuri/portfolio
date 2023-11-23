@@ -17,7 +17,6 @@ const Wrapper = styled.div`
   }
 `
 const Title = styled.div`
-  height: 100%;
   display: inline;
   p{
     font-weight: 700;
@@ -29,7 +28,6 @@ const Title = styled.div`
         font-size: 70px;
         font-weight: 900;
         letter-spacing: 3px;
-
       }
   }
 `
@@ -48,7 +46,7 @@ const Writerstyle = styled.p`
       @media screen and (max-width: 768px){
         text-align: center;
         font-size: 60px;
-        line-height: 60px;
+        line-height: 30px;
         font-weight: 900;
       }
     }

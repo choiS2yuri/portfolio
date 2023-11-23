@@ -33,7 +33,7 @@ const Title = styled.div`
     font-size: 20px;
     line-height: 40px;
     span{
-      background: linear-gradient(to top,#F3962F, #fff, #fff );
+      background: linear-gradient(to top, #F3962F, #fff, #fff );
     }
   }
   @media screen  and (max-width: 768px){
@@ -132,6 +132,11 @@ const ContainerTitle = styled.div`
 `
 
 function AboutItem() {
+  const email = 'choiyr5256@gmail.com';
+  // const openEmailForm = () => {
+  //   const email = 'dbfl20031@naver.com';
+  //   window.location.href = `mailto:${email}`;
+  // };
   return (
     <>
       <Wrap id="about">
@@ -156,9 +161,9 @@ function AboutItem() {
               </p>
             </SnsLink>
             <Connect>
-              <li><a href="mailto:dbfl20031@naver.com" target='_blank'><FontAwesomeIcon icon={faEnvelope} /></a></li>
-              <li><a target='_blank' href="https://github.com/" rel='noreferrer'><FontAwesomeIcon icon={faGithub} /></a></li>
-              <li><a target='_blank' href="https://www.notion.so/8aa8cf9ce4ea411e84c787f036917f48?pvs=4" rel='noreferrer'><img src={`images/notion.jpg`} /></a></li>
+              <li><a href={`mailto:${email}`}><FontAwesomeIcon icon={faEnvelope} /></a></li>
+              <li><a target='_blank' href="https://github.com/choiS2yuri/choiS2yuri"><FontAwesomeIcon icon={faGithub} /></a></li>
+              <li><a target='_blank' href="https://www.notion.so/8aa8cf9ce4ea411e84c787f036917f48?pvs=4"><img src={`images/notion.jpg`} /></a></li>
             </Connect>  
           </Title>
         </Wrapper>
