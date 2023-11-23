@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 const Wrap = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   /* margin: 50px 0; */
 `
 const Wrapper = styled.div`
@@ -133,10 +133,7 @@ const ContainerTitle = styled.div`
 
 function AboutItem() {
   const email = 'choiyr5256@gmail.com';
-  // const openEmailForm = () => {
-  //   const email = 'dbfl20031@naver.com';
-  //   window.location.href = `mailto:${email}`;
-  // };
+
   return (
     <>
       <Wrap id="about">
