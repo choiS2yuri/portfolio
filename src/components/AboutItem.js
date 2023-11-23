@@ -22,6 +22,7 @@ const Wrapper = styled.div`
 const Title = styled.div`
   flex-basis: 40%;
   margin: auto 0;
+  
   p{
     font-size : 30px;
     margin-bottom: 30px;
@@ -128,11 +129,6 @@ const ContainerTitle = styled.div`
       font-size: 2rem;
       font-weight: bold;
     }
-    @media screen and (max-width: 768px){
-      
-    }
-    @media screen and (min-width: 769px) and (max-width: 1024px) {
-     }
 `
 
 function AboutItem() {
@@ -160,10 +156,10 @@ function AboutItem() {
               </p>
             </SnsLink>
             <Connect>
-              <li><a target='_blank' href="mailto:choiyr5256@gmail.com" rel='noreferrer'><FontAwesomeIcon icon={faEnvelope} /></a></li>
+              <li><a href="mailto:dbfl20031@naver.com" target='_blank'><FontAwesomeIcon icon={faEnvelope} /></a></li>
               <li><a target='_blank' href="https://github.com/" rel='noreferrer'><FontAwesomeIcon icon={faGithub} /></a></li>
               <li><a target='_blank' href="https://www.notion.so/8aa8cf9ce4ea411e84c787f036917f48?pvs=4" rel='noreferrer'><img src={`images/notion.jpg`} /></a></li>
-            </Connect>
+            </Connect>  
           </Title>
         </Wrapper>
       </Wrap>

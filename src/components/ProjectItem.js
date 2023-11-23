@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-// import { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -16,24 +16,14 @@ const ContainerWrap = styled.div`
       margin: 0 20px;
     }
 `
-const ContainerTitle = styled.div`
+const ContainerTitle = styled.div`  
     width: 100%;
     margin-top: 3rem;
     text-align: center;
     margin-top: 7rem;
     position: relative;
-    &::after{
-        content: "";
-        position: absolute;
-        width: 11%;
-        height: 3px;
-        background-color: #F3962F;
-        left: 50%; top: 0;; transform: translate(-50%, -50%);
-        @media screen and (max-width: 768px){
-          visibility: hidden;
-        }
-    }
     p{
+        margin-bottom: 2rem;
         text-align: end;
         font-size: 18px;
         @media screen and (max-width: 768px){
@@ -50,6 +40,7 @@ const ContainerTitle = styled.div`
 const Title = styled.h3`
     font-size: 2rem;
     font-weight: bold;
+    margin-bottom: 5rem;
 `
 const ContentGrid = styled.div`
     flex-basis: 100%;
@@ -59,23 +50,23 @@ const ContentGrid = styled.div`
 `
 
 const ContentItem = styled.div`
-    flex-basis: 45%;
+    flex-basis: 18.4%;
     margin-bottom: 50px;
     height: 20rem;
     border: 1px solid #ddd;
     cursor: pointer;
     transition: 0.3s;
-    box-sizing: border-box; 
+    position: relative; 
     img{
       display: inline-block;
       width: 100%; height: 100%;
       transition: 0.3s;
     }
-    @media screen and (min-width: 640px){
-        flex-basis: 30%;
+    @media screen and (max-width: 767px){
+        flex-basis: calc(40% - 2px);
     }
-    @media screen and (min-width: 1024px){
-        flex-basis: 18.4%;
+    @media screen and (min-width: 768px) and (max-width: 1023px){
+        flex-basis: calc(27% - 15px);
     }
 `
 
@@ -93,12 +84,6 @@ const Description = styled.span`
     transition: 0.3s;
 `;
 function ProjectItem() {
-   
-    useEffect(() => {
-        window.scrollTo(0, 0);
-      }); 
-      
-
 
     const data =[
         {
@@ -197,6 +182,15 @@ function ProjectItem() {
             keyword: ["#운세정보","#재미있는","#미니프로젝트"],
             color: ["orange","black","#ddd"],
             date: "10일",
+            contribution: "100%"
+        },
+        {
+            type: "Webapp",
+            img: "https://placeholder.com/100",
+            title: "2048미니게임",
+            desc: "직접 제작해본 2048게임입니다.",
+            color: ["pink", "lightskyblue","gray"],
+            date: "?일",
             contribution: "100%"
         }
     

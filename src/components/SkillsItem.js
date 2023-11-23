@@ -6,6 +6,7 @@ import styled, { StyleSheetManager } from 'styled-components'
 
 const Container = styled.div`
     width: 100%;
+    overflow-x: hidden; 
     @media (max-width: 768px) {
         margin: 20rem  0;
     }
@@ -26,17 +27,6 @@ const ContainerTitle = styled.div`
     text-align: center;
     margin-top: 7rem;
     position: relative;
-    &::after{
-        content: "";
-        position: absolute;
-        width: 5%;
-        height: 3px;
-        background-color: #F3962F;
-        left: 49.7%; top: 0;; transform: translate(-50%, -50%);
-        @media screen and (max-width: 768px){
-          visibility: hidden;
-        }
-    }
 `
 const Title = styled.h3`
     font-size: 2rem;
@@ -57,6 +47,7 @@ const SkillsWrap = styled.div`
 const BtnList = styled.div`
     max-width: 1280px;
     width: 40%;
+    text-align: center;
     display: flex;
     justify-content: space-between;
     flex-direction: column;

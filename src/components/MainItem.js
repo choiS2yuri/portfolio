@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Typewriter } from 'react-simple-typewriter'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 const Wrapper = styled.div`
   width: 80%;
@@ -54,9 +56,10 @@ const Writerstyle = styled.p`
 
 
 function MainItem() {
-    // const txt = "안녕하세요."
+    // const txt = "안녕하세요.최유리입니다."
     // const [text, setText] = useState('');
     // const [count, setCount] = useState(0);
+
     // useEffect(() => {
     //     const interval = setInterval(() => {
     //       setText(text + txt[count]);

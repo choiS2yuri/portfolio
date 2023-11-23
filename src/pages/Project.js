@@ -218,6 +218,15 @@ function Project() {
         git: "https://github.com/choiS2yuri/lucky",
         contribution: "100%"
     },
+    {
+        type: "Webapp",
+        img: "https://placeholder.com/100",
+        title: "2048미니게임",
+        desc: "직접 제작해본 2048게임입니다.",
+        color: ["pink", "lightskyblue","gray"],
+        date: "?일",
+        contribution: "100%"
+    }
 
 ]
 

@@ -66,9 +66,6 @@ function Aside() {
       }
     };
     window.addEventListener("scroll", isActiveClick);
-    return () => {
-      window.removeEventListener("scroll", isActiveClick); 
-    };
   }, []);
 
   const moveToTop = () =>

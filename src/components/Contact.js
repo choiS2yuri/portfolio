@@ -21,17 +21,7 @@ const ContainerTitle = styled.div`
     text-align: center;
     margin-bottom: 1.25rem;
     position: relative;
-    &::after{
-        content: "";
-        position: absolute;
-        width: 8%;
-        height: 3px;
-        background-color: #F3962F;
-        left: 50%; top: 0;; transform: translate(-50%, -50%);
-    }
-    @media screen and (max-width: 768px){
-      visibility: hidden;
-    }
+
 `
 const Title = styled.h3`
     font-size: 2rem;
