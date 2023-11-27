@@ -7,18 +7,16 @@ import styled, { StyleSheetManager } from 'styled-components'
 const Container = styled.div`
     width: 100%;
     height: 100vh;
-    @media (max-width: 768px) {
-        margin: 20rem  0;
-    }
   
 `
 const ContainerWrap = styled.div`
     max-width: 1280px;
     height: 100%;
     margin: 0 auto;
+
     display: flex; flex-wrap: wrap;
     align-items: center;
-    @media (max-width: 768px) {
+    @media (max-width: 680px) {
         flex-direction: column;
     }
 
@@ -41,7 +39,7 @@ const SkillsWrap = styled.div`
     @media (max-width: 1024px) {
 
     }
-    @media (max-width: 768px) {
+    @media (max-width: 680px) {
 
     }
 `
@@ -63,7 +61,7 @@ const BtnTitle = styled.div`
     background-color: ${({ isclick }) => (isclick ? '#F3962F' : '#fff')};
     color: ${({ isclick }) => (isclick ? '#fff' : '#000')};
     font-weight: ${({ isclick }) => (isclick ? 'bold' : 'normal')};
-    @media (max-width: 768px) {
+    @media (max-width: 680px) {
         display: flex;
     }
 `
@@ -97,7 +95,7 @@ const SkillBox = styled.div`
     width: 40%;
     margin: 0 auto;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 680px) {
 
   }
 `;
@@ -122,7 +120,7 @@ const SkillsImg = styled.div`
     &:hover {
       transform: scale(1.1);
     }
-    @media (max-width: 768px) {
+    @media (max-width: 680px) {
       justify-content: center;
     }
   }
@@ -148,7 +146,7 @@ const SkillsImg = styled.div`
 //   display: flex;
 // `;
 const SkillsDesc = styled.div`
-    margin-top: 5rem;
+    margin-top: 2rem;
     border: 1px solid #ddd;
     width: 100%;
     height: auto;

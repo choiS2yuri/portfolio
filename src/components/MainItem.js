@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   white-space: pre-line;
   box-sizing: border-box;
   padding-top: 200px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 680px){
     padding-top: 200px;
   }
 `
@@ -24,7 +24,7 @@ const Title = styled.div`
     font-size: 120px;  
     font-family: 'KCC-Ganpan', sans-serif;
     letter-spacing: 10px;
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 680px){
         font-size: 70px;
         font-weight: 900;
         letter-spacing: 3px;
@@ -43,10 +43,10 @@ const Writerstyle = styled.p`
       font-size: 100px;
       line-height: 80px;
       font-weight: 900;
-      @media screen and (max-width: 768px){
+      @media screen and (max-width: 680px){
         text-align: center;
         font-size: 60px;
-        line-height: 30px;
+        line-height: 20px;
         font-weight: 900;
       }
     }

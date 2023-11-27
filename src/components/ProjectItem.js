@@ -13,7 +13,7 @@ const ContainerWrap = styled.div`
     margin: 0 auto;
     display: flex; flex-wrap: wrap;
     padding: 0 2%;
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 680px){
       margin: 0 20px;
     }
 `
@@ -27,7 +27,7 @@ const ContainerTitle = styled.div`
         margin-bottom: 2rem;
         text-align: end;
         font-size: 18px;
-        @media screen and (max-width: 768px){
+        @media screen and (max-width: 680px){
             visibility: visible;
         }
         a{
@@ -63,10 +63,10 @@ const ContentItem = styled.div`
       width: 100%; height: 100%;
       transition: 0.3s;
     }
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 680px){
         flex-basis: calc(40% - 2px);
     }
-    @media screen and (min-width: 768px) and (max-width: 1023px){
+    @media screen and (min-width: 681px) and (max-width: 1023px){
         flex-basis: calc(27% - 15px);
     }
 `

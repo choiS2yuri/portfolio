@@ -63,8 +63,9 @@ const Nav = styled.div`
     }
     @media (min-width:681px) and (max-width: 1280px) {
         ul{
+            width: 100%;
             height: 75px;
-            li{flex-basis: 40%; font-size: 20px; line-height:75px;} 
+            li{flex-basis: 40%; font-size: 1.2rem;} 
         }
     }
 `
@@ -101,12 +102,12 @@ const HWrap = styled.div`
 
 const HWrapper=styled.div`
     text-align: center;
-    width: 80%;    
+    width: 70%;    
     ul{
         flex-basis: 70%;
         display: flex;
         flex-basis: 100%;
-        justify-content: space-around;
+        justify-content: space-between;
         li{
             cursor: pointer;
             font-size: 20px;

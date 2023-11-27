@@ -21,8 +21,7 @@ const Wrapper = styled.div`
 `
 const Title = styled.div`
   flex-basis: 40%;
-  margin: auto 0;
-  
+  margin: 0 auto;
   p{
     font-size : 30px;
     margin-bottom: 30px;
@@ -30,20 +29,21 @@ const Title = styled.div`
   }
   span{
     flex-basis: 43%;
-    font-size: 20px;
-    line-height: 40px;
+    font-size: 22px;
+    line-height: 30px;
     span{
       background: linear-gradient(to top, #F3962F, #fff, #fff );
     }
   }
-  @media screen  and (max-width: 768px){
+  @media screen  and (max-width: 680px){
     flex-basis: 80%;
     text-align: center;
     display: flex;
     flex-direction: column;
     p{
-      margin-top: 60px;
+      margin-top: 40px;
       flex-basis: 100%;
+      font-size: 25px;
     }
     span{
       font-size: 18px;
@@ -60,7 +60,7 @@ const Imgbox = styled.div`
   align-items: center;
   position: relative;
   cursor: pointer;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 680px){
     flex-basis: 100%;
     &:hover{
     transform:rotate(0deg)
@@ -76,7 +76,7 @@ const RotatedImg = styled.img`
   &:hover{
     transform:rotate(0deg)
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 680px){
     width: 60%; height: 80%;
     transform: rotate(0deg);
     &:hover{
@@ -96,8 +96,15 @@ const SnsLink = styled.div`
     svg{
       margin-right: 10px;
     }
+    @media screen and (max-width: 680px){
+      p{
+        font-size: 10px;
+        svg{
+          font-size: 5px;
+        }
+      }
+    }
   }
-
 `
 const Connect = styled.ul`
   width: 100%;

@@ -8,7 +8,7 @@ const Wrapbar = styled.div`
   background-color: #F3962F;
   z-index: 1000;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 680px) {
     visibility: hidden;
   }
   div {
@@ -27,7 +27,6 @@ function HeightBar({moveToArtist}) {
   const [isVisible, setIsVisible] = useState([false, false, false, false]);
   const headingsRef = [useRef(), useRef(), useRef(), useRef()];
 
-  // {menuActive ? "right-0":"-right-72"}
   useEffect(() => {
     const handleScroll = () => {
       headingsRef.forEach((ref, index) => {
