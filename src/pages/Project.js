@@ -9,7 +9,7 @@ import Aside from '../components/Aside'
 
 const Wrap = styled.div`
  width: 100%; 
- padding: 50px 0 32px;  
+ /* padding: 50px 0 32px;   */
  margin: 50px auto 0;
 `
 
@@ -17,8 +17,6 @@ const Wrapper = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   background-color: #fff;
-  /* border-radius: 10px;
-  border: 1px solid #ddd; */
 `
 const Title = styled.div`
   text-align: center; 
@@ -34,9 +32,7 @@ const Container = styled.div`
   @media (max-width: 1024px) {
     flex-basis: 20%;
   }
-  @media (max-width: 680px) {
 
-  }
 `
 const List = styled.ul`
   display: flex;
@@ -58,9 +54,10 @@ const ProjectList = styled.div`
   height: auto;
   background-color: #fff;
   margin-bottom: 2rem;
-  padding: 3rem 2rem 4rem;
+  padding: 3rem 0 4rem;
   border-radius: 1rem;
   display: flex;
+  justify-content: space-around;
   flex-wrap:wrap;
   border: 1px solid #ddd;
   gap: 2%;
@@ -74,7 +71,7 @@ const ProjectItem = styled.div`
   }
 `
 const ProjectDesc = styled.div`
-  flex-basis: 50%;
+  flex-basis: 55%;
   line-height: 30px;
   h3{
     font-weight: bold;
@@ -84,6 +81,16 @@ const ProjectDesc = styled.div`
   p{
     width: 80%;
     margin: 0 auto;
+    svg{
+      margin-right: 10px;
+    }
+  }
+`
+const ProjectBtn = styled.div`
+  margin-top: 4rem;
+  display: flex;
+  justify-content: end;
+  a{
     button{
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       padding: 10px 20px;
@@ -96,12 +103,9 @@ const ProjectDesc = styled.div`
         background-color: #dedede;
       }
     }
-    svg{
-      margin-right: 10px;
-    }
   }
+  
 `
-
 function Project() {
   const menuArray = ["전체", "클론", "프로젝트", "웹앱"];
   const menuType = ["전체", "Clone", "Project", "Webapp"];
@@ -135,18 +139,6 @@ function Project() {
         contribution: "20%"
     },
     {
-      type : "Clone",
-      img : "./../images/4.jpg",
-      title : "반올림피자샵",
-      desc : "클론코딩으로 html,css,js로 구현했습니다.",
-      keyword: ["#대구기업","#리디자인","#깔끔한"],
-      color: ["#00a1e9","#ffe100","#dfdfdf"],
-      date: "15일",
-      original : "https://banolim.vercel.app/",
-      git: "https://github.com/choiS2yuri/banolim",
-      contribution: "100%"
-    },
-    {
         type : "Clone",
         img : "./../images/3.jpg",
         title : "써브웨이",
@@ -168,6 +160,18 @@ function Project() {
       date: "5일",
       original : "https://chois2yuri.github.io/horryscoffe/",
       git: "https://github.com/choiS2yuri/horryscoffe",
+      contribution: "100%"
+    },
+    {
+      type : "Clone",
+      img : "./../images/4.jpg",
+      title : "반올림피자샵",
+      desc : "클론코딩으로 html,css,js로 구현했습니다.",
+      keyword: ["#대구기업","#리디자인","#깔끔한"],
+      color: ["#00a1e9","#ffe100","#dfdfdf"],
+      date: "15일",
+      original : "https://banolim.vercel.app/",
+      git: "https://github.com/choiS2yuri/banolim",
       contribution: "100%"
     },
     {
@@ -263,19 +267,6 @@ const handleClick = (index) => {
               </Wrapper>
               <Container>
                 <List>
-                  {/* {
-                  menuArray.map((e,i)=>{
-                    return(
-                      <ListItem
-                        key={i}
-                        onClick={() => handleClick(i)}
-                        isClick={isClick === i}>
-                        {e} 
-                        ({count})
-                      </ListItem>
-                    )
-                    })
-                  } */}
                   { menuArray.map((e,i) => {
                     const itemCount = data.filter(
                       item => menuType[i] === "전체" || menuType[i] === item.type).length;
@@ -316,14 +307,15 @@ const handleClick = (index) => {
                               <span key={index} style={{ backgroundColor: color, padding: '2px', marginRight: '10px', width:'10px',height:'10px',display:'inline-block'}}></span>
                               ))}
                             </p>
-                            <p style={{textAlign:"end",fontSize:"30px"}}>
-                              <a href={e.git} target="_blank" rel="noopener noreferrer">
-                                <button>Github</button>
-                              </a>
-                              <a href={e.original} target="_blank" rel="noopener noreferrer">
-                                <button>Vercel</button>
-                              </a>
-                            </p>
+                            <ProjectBtn>
+                              {/* <p style={{textAlign:"end",fontSize:"30px"}}> */}
+                                <a href={e.git} target="_blank" rel="noopener noreferrer">
+                                  <button>Github</button>
+                                </a>
+                                <a href={e.original} target="_blank" rel="noopener noreferrer">
+                                  <button>Vercel</button>
+                                </a>        
+                            </ProjectBtn>
                           </ProjectDesc>
                         </ProjectList>
                       )

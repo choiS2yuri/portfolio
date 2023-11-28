@@ -23,8 +23,20 @@ const Desc = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  :nth-child(1){
+  span{
     font-size: 30px;
+    margin-bottom: 0.5rem;
+  }
+  span{
+    @media screen and (max-width: 680px) {
+        font-size: 20px;
+    }
+    p{
+      font-size: 20px;
+      @media screen and (max-width: 680px) {
+        font-size: 18px;
+      }
+    }
   }
 `
 function Footer() {
