@@ -4,57 +4,80 @@ import React, { useState } from 'react'
 import styled, { StyleSheetManager } from 'styled-components'
 
 
+// const Container = styled.div`
+//     width: 100%;
+//     height: 100vh;
+// `
+// const ContainerWrap = styled.div`
+//     width: 1280px;
+//     height: 100%;
+//     margin: 0 auto;
+//     display: flex; flex-wrap: wrap;
+//     align-items: center;
+//     @media (max-width: 680px) {
+//         width: 100%;
+//         flex-direction: column;
+//         display: flex; 
+//         justify-content: space-between;
+//         flex-wrap: wrap;
+//     }
+
+// `
+// const ContainerTitle = styled.div`
+//     width: 100%;
+//     text-align: center;
+//     margin-top: 7rem;
+//     position: relative;
+// `
 const Container = styled.div`
     width: 100%;
-    height: 100vh;
-  
+    padding-bottom: 48px;
+    text-align: center;
+    margin: 5rem 0;
 `
 const ContainerWrap = styled.div`
     max-width: 1280px;
-    height: 100%;
     margin: 0 auto;
-
     display: flex; flex-wrap: wrap;
-    align-items: center;
-    @media (max-width: 680px) {
-        flex-direction: column;
-    }
-
+    padding: 0 2%;
 `
 const ContainerTitle = styled.div`
     width: 100%;
+    margin-top: 5rem;
     text-align: center;
-    margin-top: 7rem;
-    position: relative;
+    margin-bottom: 1.5rem;
 `
-const Title = styled.h3`
+
+const Title = styled.div`
     font-size: 2rem;
     font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
 `
 const SkillsWrap = styled.div`
     width: 100%;
-    margin: 10rem auto;
+    margin: 5rem auto;
     display: flex;
-    justify-content: space-around;
-    @media (max-width: 1024px) {
-
-    }
-    @media (max-width: 680px) {
-
-    }
 `
 const BtnList = styled.div`
-    max-width: 1280px;
-    width: 40%;
-    text-align: center;
+    flex-basis: 50%;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
+    align-items: center;
+    @media screen and (max-width: 680px){
+        flex-basis: 35%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
 `
 const BtnTitle = styled.div`
+    width: 50%;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-right: 2rem;
+    margin-bottom: 1rem;
     padding: 0.5rem;
     border-radius: 10px;
     letter-spacing: 2px;
@@ -62,55 +85,29 @@ const BtnTitle = styled.div`
     color: ${({ isclick }) => (isclick ? '#fff' : '#000')};
     font-weight: ${({ isclick }) => (isclick ? 'bold' : 'normal')};
     @media (max-width: 680px) {
-        display: flex;
+        width: 60%;
     }
 `
-// const SkillBox = styled.div`
-//   max-width: 1280px;
-//   margin: 0 auto;
-//   display: grid;
-//   grid-template-columns: repeat(8, 1fr);
-//   grid-gap: 2rem;
-//   margin-top: 50px;
-//   @media (max-width: 1024px) {
-//       grid-template-columns: repeat(6, 1fr);
-//       grid-gap: 1rem;
-//   }
-
-//   @media (max-width: 768px) {
-//       grid-template-columns: repeat(4, 1fr);
-//       grid-gap: 0.5rem;
-//   }
-// `;
 const SkillBox = styled.div`
-  max-width: 1280px;
-  width: 50%;
+  flex-basis: 50%;
   height: 12.5rem;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: wrap;
-  @media (max-width: 1024px) {
-    width: 40%;
-    margin: 0 auto;
-  }
   @media (max-width: 680px) {
-
+    flex-basis: 40%;
+    margin: 0;
   }
 `;
-// const SkillItem = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   margin-bottom: 2rem;
-//   align-items: center;
-// `;
+
 
 const SkillsImg = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   img {
     display: block;
     width: 3rem;
@@ -121,30 +118,10 @@ const SkillsImg = styled.div`
       transform: scale(1.1);
     }
     @media (max-width: 680px) {
-      justify-content: center;
     }
   }
 `;
-// const SkillsImg = styled.div`
-//   display: flex;
-//   align-items: center;
-//   img {
-//     width: 50px;
-//     height: 50px;
-//     cursor: pointer;
-//     transition: transform 0.3s ease-in-out;
-//     &:hover {
-//       transform: scale(1.1);
-//     }
-//     @media (max-width: 768px) {
-//     justify-content: center;
-//   }
-//   }
-// `;
 
-// const SkillItem = styled.div`
-//   display: flex;
-// `;
 const SkillsDesc = styled.div`
     margin-top: 2rem;
     border: 1px solid #ddd;
@@ -152,6 +129,7 @@ const SkillsDesc = styled.div`
     height: auto;
     border-radius: 20px;
     p{
+        text-align: start;
        font-size: 1rem;
        color: #555;
        line-height: 3rem;
@@ -160,7 +138,7 @@ const SkillsDesc = styled.div`
         color: #F3962F;
         margin-right: 1rem;
        }
-       }
+    }
 `;
 
 

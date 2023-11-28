@@ -47,7 +47,6 @@ const ContentGrid = styled.div`
     flex-basis: 100%;
     display: flex; flex-wrap: wrap;
     justify-content: space-between;
-
 `
 
 const ContentItem = styled.div`

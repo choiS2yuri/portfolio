@@ -41,15 +41,18 @@ const Content = styled.button`
     color: #fff;
   }
   @media screen and (max-width: 640px){
-        cursor: pointer;
-        padding: 10px;
-        background-color: #F3962F;
-        color: #fff;
-        border-radius: 50%;
-        svg{
-          font-size: 0.8rem;
-          color: #fff;
-        }
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(243, 150, 47, 0.8);
+    color: #fff;
+    border-radius: 50%;
+    svg{
+      width: 22px;
+      height: 22px;
+      color: #fff;
+    }
   }
 `;
 

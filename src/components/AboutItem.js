@@ -8,8 +8,7 @@ import styled from 'styled-components'
 
 const Wrap = styled.div`
   width: 100%;
-  height: 100vh;
-  /* margin: 50px 0; */
+  padding: 5rem 0;
 `
 const Wrapper = styled.div`
   max-width: 1280px;
@@ -19,35 +18,50 @@ const Wrapper = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
 `
+const ContainerTitle = styled.div`
+    width: 100%;
+    text-align: center;
+    margin-top: 6rem;
+    margin-bottom: 5rem;
+    position: relative;
+    p{
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    @media screen and (max-width: 680px){
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+`
 const Title = styled.div`
   flex-basis: 40%;
-  margin: 0 auto;
+
   p{
     font-size : 30px;
     margin-bottom: 30px;
     font-weight: bold;
+    text-align: center;
   }
   span{
-    flex-basis: 43%;
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 22px; 
+    line-height: 40px;
     span{
       background: linear-gradient(to top, #F3962F, #fff, #fff );
     }
   }
   @media screen  and (max-width: 680px){
-    flex-basis: 80%;
+    flex-basis: 90%;
     text-align: center;
     display: flex;
     flex-direction: column;
     p{
-      margin-top: 40px;
+      margin: 20px 0 40px;
       flex-basis: 100%;
       font-size: 25px;
     }
     span{
       font-size: 18px;
-      line-height: 24px;
+      line-height: 30px;
       flex-basis: 100%;
     }
   }
@@ -60,34 +74,35 @@ const Imgbox = styled.div`
   align-items: center;
   position: relative;
   cursor: pointer;
+  img{
+    width: 40%;
+    height: 65%;
+    border: 1px solid #F3962F;
+    transform: rotate(30deg);
+    transition: transform 0.5s;
+    &:hover{
+      transform:rotate(0deg)
+    }
+    @media screen and (max-width: 680px){
+      width: 60%; height: 80%;
+      transform: rotate(0deg);
+      &:hover{
+      transform:rotate(30deg)
+      }
+    }
+  }
   @media screen and (max-width: 680px){
     flex-basis: 100%;
-    &:hover{
-    transform:rotate(0deg)
-    }
-  }
-`
-const RotatedImg = styled.img`
-  width: 30%;
-  height: 60%;
-  border: 1px solid #F3962F;
-  transform: rotate(30deg);
-  transition: transform 0.5s;
-  &:hover{
-    transform:rotate(0deg)
-  }
-  @media screen and (max-width: 680px){
-    width: 60%; height: 80%;
-    transform: rotate(0deg);
-    &:hover{
-    transform:rotate(30deg)
-    }
   }
 `
 const SnsLink = styled.div`
-  width: 100%;
-  text-align: end;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
   p{
+    width: 80%;
+    text-align: right;
     margin-top:30px;
     font-size: 18px;
     font-weight: normal;
@@ -95,20 +110,23 @@ const SnsLink = styled.div`
     color: #9b9b9b;
     svg{
       margin-right: 10px;
+      font-size: 16px;
     }
-    @media screen and (max-width: 680px){
+  }
+  @media screen and (max-width: 680px){
+      
       p{
-        font-size: 10px;
+        font-size: 15px;
         svg{
-          font-size: 5px;
+          font-size: 10px;
         }
       }
     }
-  }
 `
 const Connect = styled.ul`
   width: 100%;
-  margin-top: 100px; 
+  margin-top: 50px; 
+  box-sizing: border-box;
   box-sizing: border-box;
   display: flex;
   li{
@@ -125,18 +143,7 @@ const Connect = styled.ul`
     }
   }
 `
-const ContainerTitle = styled.div`
-    width: 100%;
-    margin-top: 3rem;
-    text-align: center;
-    margin-top: 6.5rem;
-    margin-bottom: 1.25rem;
-    position: relative;
-    p{
-      font-size: 2rem;
-      font-weight: bold;
-    }
-`
+
 
 function AboutItem() {
   const email = 'choiyr5256@gmail.com';
@@ -149,7 +156,7 @@ function AboutItem() {
             <p>ABOUT</p>
           </ContainerTitle>
           <Imgbox>
-            <RotatedImg src={`images/aboutimg.jpg`} alt='profile'/>
+            <img src={`images/aboutimg.jpg`} alt='profile'/>
           </Imgbox>
           <Title>
             <p>노력하는 개발자 최유리입니다&#58;&#41;</p>
@@ -158,7 +165,7 @@ function AboutItem() {
             </span>
             <SnsLink>
               <p>
-                <FontAwesomeIcon icon={faLandmark} />&#40;혼합+디지털컨버전스&#41;React를 활용한 프론트엔드 개발자 양성&#40;SPA프로젝트 개발 &#41;A&#95;-900시간
+                <FontAwesomeIcon icon={faLandmark} />&#40;혼합+디지털컨버전스&#41;React를 활용한 프론트엔드<br/>개발자 양성&#40;SPA프로젝트 개발 &#41;A&#95;-900시간<br/>2023년 6월 28일~ 11월 30일
               </p>
               <p>
                 <FontAwesomeIcon icon={faLandmark} />&#40;그린 온라인캠프&#41;웹퍼블리싱 & 웹개발을 위한 코딩 기초&#95;2023년 7월 5일~ 8월 2일
