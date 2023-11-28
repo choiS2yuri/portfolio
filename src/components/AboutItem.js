@@ -174,7 +174,7 @@ function AboutItem() {
             <Connect>
               <li><a href={`mailto:${email}`}><FontAwesomeIcon icon={faEnvelope} /></a></li>
               <li><a target='_blank' href="https://github.com/choiS2yuri/choiS2yuri"><FontAwesomeIcon icon={faGithub} /></a></li>
-              <li><a target='_blank' href="https://www.notion.so/8aa8cf9ce4ea411e84c787f036917f48?pvs=4"><img src={`images/notion.jpg`} /></a></li>
+              <li><a target='_blank' href="https://bronze-suggestion-c47.notion.site/8aa8cf9ce4ea411e84c787f036917f48?pvs=4"><img src={`images/notion.jpg`} /></a></li>
             </Connect>  
           </Title>
         </Wrapper>
