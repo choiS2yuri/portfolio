@@ -148,10 +148,10 @@ function SkillsItem() {
     const skillsType = ["All","frontend", "backend", "etc"];
     const [isclick, setIsClick] = useState(0);
     const [menuList, setMenuList] = useState("All");
-    const [clickedImageDesc, setClickedImageDesc] = useState('');
+    const [clickDesc, setClickDesc] = useState('');
 
-    const handleImageClick = (desc) => {
-        setClickedImageDesc(desc);
+    const skillsClick = (desc) => {
+        setClickDesc(desc);
       };
 
 
@@ -286,14 +286,14 @@ function SkillsItem() {
                                 data.filter((e)=> menuList === "All" || menuList === e.type).map((e,i)=>{
                                     return(
                                         <SkillsImg key={i}>
-                                            <img src={e.img} alt={e.title} style={{width:"2.3rem", height:"3rem"}}  onClick={() => {handleImageClick(e.desc);}}/>
+                                            <img src={e.img} alt={e.title} style={{width:"2.3rem", height:"3rem"}}  onClick={() => {skillsClick(e.desc);}}/>
                                         </SkillsImg>
                                 )}
                             )}
                         </SkillBox>
                     </SkillsWrap>
                     <SkillsDesc>
-                        <p><FontAwesomeIcon icon={faComputerMouse}/>{clickedImageDesc}</p>
+                        <p><FontAwesomeIcon icon={faComputerMouse}/>{clickDesc}</p>
                     </SkillsDesc>
                 </ContainerWrap>
             </Container>
