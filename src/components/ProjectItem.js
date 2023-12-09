@@ -61,43 +61,51 @@ const ContentItem = styled.div`
       display: inline-block;
       width: 100%; height: 100%;
       transition: 0.3s;
+        &:hover {
+            span{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     }
     @media screen and (max-width: 680px){
-        flex-basis: calc(40% - 2px);
+        flex-basis: calc(40%);
     }
     @media screen and (min-width: 681px) and (max-width: 1023px){
-        flex-basis: calc(27% - 15px);
+        flex-basis: calc(27%);
     }
 `
-
 const Description = styled.span`
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    /* color: #fff;
-    opacity: ${({isOpen}) => (isOpen ? '1' : '0')}; */
+    background-color: rgba(200, 200, 200, 0.7);
     opacity: 0;
     transform: translateY(100%);
-    transition: 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    @media screen and (max-width: 680px){
+        width: 100%;
+    }
 `;
+
 function ProjectItem() {
 
     const data =[
         {
-            type : "Clone",
-            img : "./../images/2.jpg",
-            title : "할리스커피",
-            desc : "클론코딩으로 html,css로 구현했습니다.",
-            keyword: ["#심플", "#깰끔", "커피"],
-            color: ["#b5121b", "#6f6f6f" , "#de898e"],
-            date: "5일",
-            original : "https://chois2yuri.github.io/horryscoffe/",
-            contribution: "100%"
-        },  
-        {   
+          type : "Project",
+          img : "./../images/9.jpg",
+          title : "최유리포트폴리오",
+          desc : "React와 styled-components를 활용해 제작하였습니다.",
+          keyword: ["about","#프론트엔드","#개발자"],
+          color: ["orange","black","#ddd"],
+          date: "14일",
+          original : "https://portfolio-chois2yuri.vercel.app/",
+          git: "https://github.com/choiS2yuri/portfolio",
+          contribution: "100%"
+         },  
+         {   
             type : "Project",
             img : "./../images/1.jpg",
             title : "greenping",
@@ -113,34 +121,37 @@ function ProjectItem() {
             type : "Clone",
             img : "./../images/3.jpg",
             title : "써브웨이",
-            desc : "클론코딩입니다",
+            desc : "클론코딩으로 html,css,js로 구현했습니다.",
             keyword: ["#맛있는","#반응형","차은우"],
             color: ["#009223","#ffc300","#292929"],
             date: "10일",
             original : "https://subway-henna.vercel.app/",
+            git: "https://github.com/choiS2yuri/subway",
             contribution: "100%"
         },
         {
-            type : "Clone",
-            img : "./../images/4.jpg",
-            title : "반올림피자샵",
-            desc : "클론코딩으로 html,css로 구현했습니다.",
-            keyword: ["#대구기업","#리디자인","#깔끔한"],
-            color: ["#00a1e9","#ffe100","#dfdfdf"],
-            date: "15일",
-            original : "",
-            contribution: "100%"
+          type : "Clone",
+          img : "./../images/2.jpg",
+          title : "할리스커피",
+          desc : "클론코딩으로 html,css로 구현했습니다.",
+          keyword: ["#심플", "#깰끔", "커피"],
+          color: ["#b5121b", "#6f6f6f" , "#de898e"],
+          date: "5일",
+          original : "https://chois2yuri.github.io/horryscoffe/",
+          git: "https://github.com/choiS2yuri/horryscoffe",
+          contribution: "100%"
         },
         {
-            type : "Webapp",
-            img : "./../images/5.jpg",
-            title : "부산축제정보",
-            desc : "공공데이터 API를 활용한 부산축제정보 안내 사이트입니다.",
-            keyword: ["#여행정보","#부산"],
-            color: ["#e9f1f6","lightskyblue","#333"],
-            date: "5일",
-            original : "https://festival-kappa.vercel.app/",
-            contribution: "100%"
+          type : "Clone",
+          img : "./../images/4.jpg",
+          title : "반올림피자샵",
+          desc : "클론코딩으로 html,css,js로 구현했습니다.",
+          keyword: ["#대구기업","#리디자인","#깔끔한"],
+          color: ["#00a1e9","#ffe100","#dfdfdf"],
+          date: "15일",
+          original : "https://banolim.vercel.app/",
+          git: "https://github.com/choiS2yuri/banolim",
+          contribution: "100%"
         },
         {
             type : "Webapp",
@@ -151,6 +162,7 @@ function ProjectItem() {
             color: ["green","blue","gray"],
             date: "2일",
             original : "https://quiz-teal-beta.vercel.app/",
+            git: "https://github.com/choiS2yuri/quiz",
             contribution: "100%"
         },        
         {
@@ -162,26 +174,31 @@ function ProjectItem() {
             color: ["#818cf8","#fb923c","#ec4899"],
             date: "3일",
             original : "https://parcel-psi-bay.vercel.app/",
+            git: "https://github.com/choiS2yuri/parcel",
             contribution: "100%"
         },
+        {
+          type : "Webapp",
+          img : "./../images/5.jpg",
+          title : "부산축제정보",
+          desc : "공공데이터 API를 활용한 부산축제정보 안내 사이트입니다.",
+          keyword: ["#여행정보","#부산"],
+          color: ["#e9f1f6","lightskyblue","#333"],
+          date: "5일",
+          original : "https://festival-kappa.vercel.app/",
+          git: "https://github.com/choiS2yuri/-festival",
+          contribution: "100%"
+         },
         {
             type : "Webapp",
             img : "./../images/8.jpg",
             title : "오늘의 운세정보",
             desc : "오늘의 운세정보를 확인할 수 있는 사이트",
             keyword: ["#운세정보","#재미있는","#미니프로젝트"],
-            color: ["F9A8D4","#F472B6"],
+            color: ["#F9A8D4","#F472B6"],
             date: "3일",
-            contribution: "100%"
-        },
-        {
-            type : "Project",
-            img : "./../images/9.jpg",
-            title : "최유리포트폴리오",
-            desc : "포트폴리오 제작했습니다.",
-            keyword: ["#운세정보","#재미있는","#미니프로젝트"],
-            color: ["orange","black","#ddd"],
-            date: "10일",
+            original: "https://lucky-steel.vercel.app/",
+            git: "https://github.com/choiS2yuri/lucky",
             contribution: "100%"
         },
         {
@@ -195,7 +212,6 @@ function ProjectItem() {
         }
     
     ]
-    
 
 
 

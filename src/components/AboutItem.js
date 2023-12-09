@@ -4,6 +4,7 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faLandmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 
 const Wrap = styled.div`
@@ -14,9 +15,17 @@ const Wrapper = styled.div`
   max-width: 1280px;
   height: 100%;
   margin: 0 auto;
+`
+const ContainerWrap = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  @media screen and (min-width: 681px) {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
 `
 const ContainerTitle = styled.div`
     width: 100%;
@@ -35,7 +44,6 @@ const ContainerTitle = styled.div`
 `
 const Title = styled.div`
   flex-basis: 40%;
-
   p{
     font-size : 30px;
     margin-bottom: 30px;
@@ -50,10 +58,12 @@ const Title = styled.div`
     }
   }
   @media screen  and (max-width: 680px){
-    flex-basis: 90%;
+    flex-basis: 100%;
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    margin-top: 20px;
     p{
       margin: 20px 0 40px;
       flex-basis: 100%;
@@ -68,13 +78,14 @@ const Title = styled.div`
 `
 
 const Imgbox = styled.div`
-  flex-basis: 60%;
+  flex-basis: 45%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   cursor: pointer;
-  img{
+  /* img{
     width: 40%;
     height: 65%;
     border: 1px solid #F3962F;
@@ -90,9 +101,11 @@ const Imgbox = styled.div`
       transform:rotate(30deg)
       }
     }
-  }
+  } */
   @media screen and (max-width: 680px){
-    flex-basis: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+    visibility: hidden;
   }
 `
 const SnsLink = styled.div`
@@ -145,9 +158,45 @@ const Connect = styled.ul`
 `
 
 
+const Image = styled.img`
+  width: 100%;
+  transition: all 0.6s ease 0.2s;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+`;
+
+const Front = styled.div`
+  position: absolute;
+  left: 25%;
+  top: 0;
+  transform: rotateY(0deg);
+  width: 40%;
+  height: 65%;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 1s;
+  backface-visibility: hidden;
+`;
+
+const Back = styled.div`
+  position: absolute;
+  left: 25%;
+  top: 0;
+  transform: rotateY(-180deg);
+  width: 40%;
+  height: 65%;
+  cursor: pointer;
+  transition: transform 1s;
+  backface-visibility: hidden;
+`;
+
 function AboutItem() {
   const email = 'choiyr5256@gmail.com';
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleHover = () => {
+    setIsHovered(!isHovered);
+  };
   return (
     <>
       <Wrap id="about">
@@ -155,28 +204,38 @@ function AboutItem() {
           <ContainerTitle>
             <p>ABOUT</p>
           </ContainerTitle>
-          <Imgbox>
+          {/* <Imgbox>
             <img src={`images/aboutimg.jpg`} alt='profile'/>
-          </Imgbox>
-          <Title>
-            <p>노력하는 개발자 최유리입니다&#58;&#41;</p>
-            <span> 
-            늦게 시작한 개발자지만, 그것이 오히려 저에게는 더 큰 동기부여가 되었습니다.<span> '늦게 배운 도둑질이 날새는 줄 모른다'</span> 라는 속담을 모토로 삼아 후회하는 대신, 더욱 열심히 노력하며 개발자로서의 역량을 키워나가고 있습니다. 제 자신을 더욱 향상시키고 탁월한 개발자로 성장하기 위해 최선을 다하고 있습니다.
-            </span>
-            <SnsLink>
-              <p>
-                <FontAwesomeIcon icon={faLandmark} />&#40;혼합+디지털컨버전스&#41;React를 활용한 프론트엔드<br/>개발자 양성&#40;SPA프로젝트 개발 &#41;A&#95;-900시간<br/>2023년 6월 28일~ 11월 30일
-              </p>
-              <p>
-                <FontAwesomeIcon icon={faLandmark} />&#40;그린 온라인캠프&#41;웹퍼블리싱 & 웹개발을 위한 코딩 기초&#95;2023년 7월 5일~ 8월 2일
-              </p>
-            </SnsLink>
-            <Connect>
-              <li><a href={`mailto:${email}`}><FontAwesomeIcon icon={faEnvelope} /></a></li>
-              <li><a target='_blank' href="https://github.com/choiS2yuri/choiS2yuri"><FontAwesomeIcon icon={faGithub} /></a></li>
-              <li><a target='_blank' href="https://bronze-suggestion-c47.notion.site/8aa8cf9ce4ea411e84c787f036917f48?pvs=4"><img src={`images/notion.jpg`} /></a></li>
-            </Connect>  
-          </Title>
+          </Imgbox> */}
+          <ContainerWrap>
+            <Imgbox onMouseEnter={handleHover} onMouseLeave={handleHover}>
+              <Front style={{ transform: `rotateY(${isHovered ? 180 : 0}deg)` }}>
+                <Image src={`images/aboutimg.jpg`} alt="profile" />
+              </Front>
+              <Back style={{ transform: `rotateY(${isHovered ? 0 : -180}deg)` }}>
+                <Image src={`images/mimoticon.jpg`} alt="back" />
+              </Back>
+            </Imgbox>
+            <Title>
+              <p>노력하는 개발자 최유리입니다&#58;&#41;</p>
+              <span> 
+              늦게 시작한 개발자지만, 그것이 오히려 저에게는 더 큰 동기부여가 되었습니다.<span> '늦게 배운 도둑질이 날새는 줄 모른다'</span> 라는 속담을 모토로 삼아 후회하는 대신, 더욱 열심히 노력하며 개발자로서의 역량을 키워나가고 있습니다. 제 자신을 더욱 향상시키고 탁월한 개발자로 성장하기 위해 최선을 다하고 있습니다.
+              </span>
+              <SnsLink>
+                <p>
+                  <FontAwesomeIcon icon={faLandmark} />&#40;혼합+디지털컨버전스&#41;React를 활용한 프론트엔드<br/>개발자 양성&#40;SPA프로젝트 개발 &#41;A&#95;-900시간<br/>2023년 6월 28일~ 11월 30일
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faLandmark} />&#40;그린 온라인캠프&#41;웹퍼블리싱 & 웹개발을 위한 코딩 기초&#95;2023년 7월 5일~ 8월 2일
+                </p>
+              </SnsLink>
+              <Connect>
+                <li><a href={`mailto:${email}`}><FontAwesomeIcon icon={faEnvelope} /></a></li>
+                <li><a target='_blank' href="https://github.com/choiS2yuri/choiS2yuri"><FontAwesomeIcon icon={faGithub} /></a></li>
+                <li><a target='_blank' href="https://bronze-suggestion-c47.notion.site/8aa8cf9ce4ea411e84c787f036917f48?pvs=4"><img src={`images/notion.jpg`} /></a></li>
+              </Connect>  
+            </Title>
+          </ContainerWrap>
         </Wrapper>
       </Wrap>
     </>

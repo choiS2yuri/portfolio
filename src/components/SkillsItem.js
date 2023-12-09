@@ -148,10 +148,10 @@ function SkillsItem() {
     const skillsType = ["All","frontend", "backend", "etc"];
     const [isclick, setIsClick] = useState(0);
     const [menuList, setMenuList] = useState("All");
-    const [clickDesc, setClickDesc] = useState('');
+    const [clickedImageDesc, setClickedImageDesc] = useState('');
 
     const skillsClick = (desc) => {
-        setClickDesc(desc);
+        setClickedImageDesc(desc);
       };
 
 
@@ -184,7 +184,7 @@ function SkillsItem() {
         "type":"frontend",
         "img" : "./../images/icons8-sass-48.png",
         "title" : "sass",
-        "desc":"변수, 중첩 등을 적극 활용하여 가독성을 높이고 유지보수에 용이하게 작성 할 수 있습니다."
+        "desc":"변수, 중첩 등을 활용하여 가독성을 높이고 유지보수를 원활히 작성 할 수 있습니다."
     },
     {
         "type":"frontend",
@@ -293,7 +293,7 @@ function SkillsItem() {
                         </SkillBox>
                     </SkillsWrap>
                     <SkillsDesc>
-                        <p><FontAwesomeIcon icon={faComputerMouse}/>{clickDesc}</p>
+                        <p><FontAwesomeIcon icon={faComputerMouse}/>{clickedImageDesc}</p>
                     </SkillsDesc>
                 </ContainerWrap>
             </Container>

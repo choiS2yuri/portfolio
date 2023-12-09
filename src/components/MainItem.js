@@ -46,7 +46,7 @@ const Writerstyle = styled.p`
       @media screen and (max-width: 680px){
         text-align: center;
         font-size: 60px;
-        line-height: 20px;
+        line-height: 10px;
         font-weight: 900;
       }
     }

@@ -122,8 +122,8 @@ function Project() {
       keyword: ["about","#프론트엔드","#개발자"],
       color: ["orange","black","#ddd"],
       date: "14일",
-      original : "https://project-greenping-aql4akyqb-kkkkinderjoy.vercel.app/",
-      git: "https://github.com/kkkkinderjoy/project_greenping.git",
+      original : "https://portfolio-chois2yuri.vercel.app/",
+      git: "https://github.com/choiS2yuri/portfolio",
       contribution: "100%"
      },  
      {   
@@ -230,8 +230,18 @@ function Project() {
         color: ["pink", "lightskyblue","gray"],
         date: "?일",
         contribution: "100%"
+    },
+    {
+      type : "Project",
+      img : "./../images/4.jpg",
+      title : "자유게시판",
+      desc : "Next.js와 MySQL을 활용한 자유게시판 구현",
+      color: ["#ffffff","#F3A8D5","#EC71B7"],
+      date: "15일",
+      original : "https://testboard-beige.vercel.app/",
+      git: "https://testboard-beige.vercel.app/",
+      contribution: "100%"
     }
-
 ]
 
 
