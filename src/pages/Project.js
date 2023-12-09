@@ -233,7 +233,7 @@ function Project() {
     },
     {
       type : "Project",
-      img : "./../images/4.jpg",
+      img : "./../images/10.jpg",
       title : "자유게시판",
       desc : "Next.js와 MySQL을 활용한 자유게시판 구현",
       color: ["#ffffff","#F3A8D5","#EC71B7"],
