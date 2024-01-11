@@ -220,7 +220,7 @@ function SkillsItem() {
         "type":"frontend",
         "img" : "./../images/icons8-tailwind-css-48.png",
         "title" : "tailwindcss",
-        "desc" : "반응형 웹 디자인을 구현하고 클래스를 사용하여 모바일, 태블릿,데스크톱 등 다양한 디바이스에 맞춘 레이아웃을 빠르게 제작할 수 있습니다."
+        "desc" : "반응형 웹 디자인을 구현하고 클래스를 사용하여 모바일,태블릿,데스크톱 등 다양한 디바이스에 맞춘 레이아웃을 빠르게 제작할 수 있습니다."
     },
     {
         "type":"frontend",
@@ -232,7 +232,7 @@ function SkillsItem() {
         "type":"backend",
         "img" : "./../images/icons8-mysql-48.png",
         "title" : "MySQL",
-        "desc" : "기본적인 SQL 문법을 이해하고 간단한 데이터 조작과 조회를 할 수 있습니다. 또한 CRUD연산을 통해 데이터를 활용할 수 있습니다."
+        "desc" : "기본적인 SQL 문법을 이해하고 간단한 데이터 조작과 조회를 할 수 있으며, CRUD연산을 통해 데이터를 활용할 수 있습니다."
     },
     {
         "type":"etc",
