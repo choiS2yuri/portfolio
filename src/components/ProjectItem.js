@@ -229,7 +229,9 @@ function ProjectItem() {
                         data.map((e,i)=>{
                             return(
                                 <ContentItem key={i}>
-                                  <img src={e.img} alt={e.title} />
+                                    <Link to={'/project'}>
+                                        <img src={e.img} alt={e.title} />
+                                    </Link>
                                   <Description>{e.desc}</Description>
                                 </ContentItem>
                             )
